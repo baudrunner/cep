@@ -1,5 +1,5 @@
 // Autoren: Michel Rottleuthner und Christoph Bunke
-
+///
 #include <stdio.h>
 #include "lpc24xx.h"
 #include "config.h"
