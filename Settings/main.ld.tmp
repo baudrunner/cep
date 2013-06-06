@@ -24,6 +24,7 @@ INPUT 	(
 /* HiTOP will automatically put in here all object files to be linked. */
 /* Leave this unchanged!                                               */
 .\objects\main.o
+.\objects\mp3.o
 .\objects\startup.o
 .\objects\ConfigStick.o
 .\objects\armVIC.o
