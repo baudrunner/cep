@@ -15,9 +15,10 @@
 			<Tabs Count="0"/>
 		</Window>
 		<Window Id="Source">
-			<Tabs Count="2" Active="0">
-				<Tab Pos="0" Module="main.c" TopLine="93" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
-				<Tab Pos="1" Module="" TopLine="1" FilePath="$(PROJECTDIR)\source\startup.s" Application="main"/>
+			<Tabs Count="3" Active="0">
+				<Tab Pos="0" Module="main.c" TopLine="211" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
+				<Tab Pos="1" Module="startup" TopLine="76" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
+				<Tab Pos="2" Module="uart" TopLine="77" FilePath="$(PROJECTDIR)\libfkt\uart.c" Application="Mp3"/>
 			</Tabs>
 			<UpdateOnRunning Update="0"/>
 			<WindowState State="Maximized"></WindowState>
@@ -30,7 +31,7 @@
 				<Position x="-4" y="-23"></Position>
 			</Rectangle>
 			<Rectangle State="Maximized">
-				<Size cx="1438" cy="705"></Size>
+				<Size cx="869" cy="698"></Size>
 				<Position x="-4" y="-30"></Position>
 			</Rectangle>
 		</Window>
@@ -134,22 +135,24 @@
 			</Tabs>
 		</Window>
 		<Window Id="FileView" RelativePath="Relative2Project">
-			<ApplFolder Id="Aufgab6" State="Expanded">
-				<Folder Id="Source Files" State="Expanded">
+			<ApplFolder Id="Mp3" State="Expanded">
+				<Folder Id="Source Files" State="Expanded" RelativePath="Relative2Project">
 					<File Id=".\source\main.c"/>
+					<File Id=".\source\pwm.c"/>
+					<File Id=".\source\spi.c"/>
 					<File Id=".\source\startup.s"/>
 				</Folder>
 				<Folder Id="Header Files" State="Expanded">
 					<File Id=".\source\config.h"/>
 					<File Id=".\source\lpc24xx.h"/>
+					<File Id=".\source\mp3dec.h"/>
 				</Folder>
 				<Folder Id="Other Files" State="Not_Expanded">
 					<File Id=".\info.txt"/>
 				</Folder>
-				<Folder Id="libfkt" State="Not_Expanded">
+				<Folder Id="libfkt" State="Expanded">
 					<File Id=".\libfkt\ConfigStick.c"/>
 					<File Id=".\libfkt\armVIC.c"/>
-					<File Id=".\libfkt\conio.c"/>
 					<File Id=".\libfkt\delay.c"/>
 					<File Id=".\libfkt\fio.c"/>
 					<File Id=".\libfkt\interrupt.c"/>
@@ -159,7 +162,6 @@
 					<File Id=".\libfkt\uart.c"/>
 					<File Id=".\libfkt\uartISR.c"/>
 				</Folder>
-				<Folder Id="" State="Not_Expanded" RelativePath=""/>
 			</ApplFolder>
 		</Window>
 	</Windows>
@@ -174,7 +176,7 @@
 			<BaudRate Value="0"/>
 			<DeviceName>LPC Stick-0000</DeviceName>
 		</Communication>
-		<SystemDir Path="C:\Program Files\Hitex\HiTOP53-LPC-Stick\LPC-Stick"/>
+		<SystemDir Path="C:\Programme\Hitex\HiTOP53-LPC-Stick\LPC-Stick"/>
 	</DebugDevice>
 	<EditorOptions>
 		<Font lfHeight="-15" lfWeight="400" ColorBack="16777215" ColorText="0" lfQuality="0" lfFaceName="Courier New" lfOutPrecision="0" ColorHiLiteBack="12937777" ColorHiLiteText="16777215" lfClipPrecision="0" lfPitchAndFamily="0"/>
@@ -248,10 +250,11 @@
 		</GeneralSettings>
 	</ConfigurationOptions>
 	<Directories>
-		<Directory Id="ProjectAddApplication" Dir="$(PROJECTDIR)\objects\main.elf"/>
+		<Directory Id="ProjectAddApplication" Dir="C:\Work\HAW\VORLESUN\CE\lpc-tests\Mp3\objects\Mp3.elf"/>
 	</Directories>
 	<Applications>
 		<AppPath Id="main">$(PROJECTDIR)\objects\</AppPath>
+		<AppPath Id="Mp3">C:\Work\HAW\VORLESUN\CE\lpc-tests\Mp3\objects\</AppPath>
 	</Applications>
 	<HitopObjects>
 		<MiniSequences/>
@@ -273,7 +276,7 @@
 						<Position x="-4" y="-23"></Position>
 					</Rectangle>
 					<Rectangle State="Maximized">
-						<Size cx="1438" cy="705"></Size>
+						<Size cx="869" cy="698"></Size>
 						<Position x="-4" y="-30"></Position>
 					</Rectangle>
 				</Window>
@@ -295,60 +298,62 @@
 			</Windows>
 			<Dockinglayout>
 				<Default>
-					<Summary Panes="28" Client="21" TopContainer="14"></Summary>
-					<Pane-1 ID="40364" Type="0" Title="Workspace - ModuleView\nModuleView" DockingCX="200" DockingCY="120" LastHolder="19" DockingHolder="19"></Pane-1>
-					<Pane-2 ID="40365" Tag="71725120" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="19" DockingHolder="19"></Pane-2>
-					<Pane-3 ID="40100" Tag="61470472" Type="0" Title="Register" DockingCX="200" DockingCY="120" LastHolder="19" DockingHolder="19"></Pane-3>
-					<Pane-4 ID="40110" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25" FloatingHolder="28"></Pane-4>
-					<Pane-5 ID="10001" Type="0" Title="Output" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25" FloatingHolder="28"></Pane-5>
-					<Pane-6 ID="40000" Type="0" Title="Watch - Locals\nLocals" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25"></Pane-6>
-					<Pane-7 ID="40001" Type="0" Title="Watch - Watch1\nWatch1" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25"></Pane-7>
-					<Pane-8 ID="40050" Type="0" Title="Memory - Mem0\nMem0" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25"></Pane-8>
-					<Pane-9 ID="40932" Type="0" Title="Emulator State" DockingCX="200" DockingCY="120" LastHolder="23" DockingHolder="23"></Pane-9>
-					<Pane-10 ID="40002" Tag="71934320" Type="0" Title="Watch - Watch2\nWatch2" DockingCX="200" DockingCY="120" LastHolder="25" DockingHolder="25"></Pane-10>
+					<Summary Panes="30" Client="22" TopContainer="14"></Summary>
+					<Pane-1 ID="40364" Type="0" Title="Workspace - ModuleView\nModuleView" DockingCX="200" DockingCY="120" LastHolder="20" DockingHolder="20"></Pane-1>
+					<Pane-2 ID="40365" Tag="54130992" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="20" DockingHolder="20"></Pane-2>
+					<Pane-3 ID="40100" Tag="61470472" Type="0" Title="Register" DockingCX="200" DockingCY="120" LastHolder="20" DockingHolder="20"></Pane-3>
+					<Pane-4 ID="40110" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="30" DockingHolder="27" FloatingHolder="30"></Pane-4>
+					<Pane-5 ID="10001" Type="0" Title="Output" DockingCX="200" DockingCY="120" LastHolder="30" DockingHolder="27" FloatingHolder="30"></Pane-5>
+					<Pane-6 ID="40000" Type="0" Title="Watch - Locals\nLocals" DockingCX="200" DockingCY="120" LastHolder="26" DockingHolder="26"></Pane-6>
+					<Pane-7 ID="40001" Type="0" Title="Watch - Watch1\nWatch1" DockingCX="200" DockingCY="120" LastHolder="26" DockingHolder="26"></Pane-7>
+					<Pane-8 ID="40050" Type="0" Title="Memory - Mem0\nMem0" DockingCX="200" DockingCY="120" LastHolder="26" DockingHolder="26"></Pane-8>
+					<Pane-9 ID="40932" Type="0" Title="Emulator State" DockingCX="200" DockingCY="120" LastHolder="24" DockingHolder="24"></Pane-9>
+					<Pane-10 ID="40002" Tag="56151064" Type="0" Title="Watch - Watch2\nWatch2" DockingCX="200" DockingCY="120" LastHolder="26" DockingHolder="26"></Pane-10>
 					<Pane-11 Type="5" Panes="0" Direction="0"></Pane-11>
 					<Pane-12 Type="5" Panes="0" Direction="1"></Pane-12>
 					<Pane-13 Type="5" Panes="0" Direction="3"></Pane-13>
-					<Pane-14 Type="2" Horiz="1" Panes="1" Pane-1="15" DockingCY="615"></Pane-14>
-					<Pane-15 Type="2" Panes="2" Pane-1="16" Pane-2="24" DockingCX="791" DockingCY="877"></Pane-15>
-					<Pane-16 Type="2" Horiz="1" Panes="2" Pane-1="17" Pane-2="22" DockingCY="678"></Pane-16>
-					<Pane-17 Type="2" Panes="1" Pane-1="18" DockingCX="1167"></Pane-17>
-					<Pane-18 Type="2" Horiz="1" Panes="2" Pane-1="19" Pane-2="20" DockingCX="1400" DockingCY="342"></Pane-18>
-					<Pane-19 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="246" DockingCY="120"></Pane-19>
-					<Pane-20 Type="2" Panes="1" Pane-1="21" DockingCX="1430"></Pane-20>
-					<Pane-21 Type="4"></Pane-21>
-					<Pane-22 Type="2" Panes="1" Pane-1="23" DockingCX="229" DockingCY="120"></Pane-22>
-					<Pane-23 Type="1" Panes="0" DockingCX="287" DockingCY="120"></Pane-23>
-					<Pane-24 Type="2" Horiz="1" Panes="1" Pane-1="25" DockingCX="1400" DockingCY="200"></Pane-24>
-					<Pane-25 Type="1" Panes="6" Pane-1="6" Pane-2="7" Pane-3="8" Pane-4="10" Pane-5="4" Pane-6="5" Selected="5" DockingCX="855" DockingCY="120"></Pane-25>
-					<Pane-26 Type="3" TopContaner="27" WindowRectTopPos="489" WindowRectLeftPos="708" WindowRectRightPos="1364" WindowRectBottomPos="981"></Pane-26>
-					<Pane-27 Type="2" Horiz="1" Panes="1" Pane-1="28" DockingCX="200" DockingCY="120"></Pane-27>
-					<Pane-28 Type="1" Panes="0" DockingCX="200" DockingCY="120"></Pane-28>
+					<Pane-14 Type="2" Horiz="1" Panes="2" Pane-1="15" Pane-2="27" DockingCY="615"></Pane-14>
+					<Pane-15 Type="2" Panes="1" Pane-1="16" DockingCX="907"></Pane-15>
+					<Pane-16 Type="2" Panes="2" Pane-1="17" Pane-2="25" DockingCX="791" DockingCY="877"></Pane-16>
+					<Pane-17 Type="2" Horiz="1" Panes="2" Pane-1="18" Pane-2="23" DockingCY="647"></Pane-17>
+					<Pane-18 Type="2" Panes="1" Pane-1="19" DockingCX="1167"></Pane-18>
+					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="21" DockingCX="1400" DockingCY="342"></Pane-19>
+					<Pane-20 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="246" DockingCY="120"></Pane-20>
+					<Pane-21 Type="2" Panes="1" Pane-1="22" DockingCX="862"></Pane-21>
+					<Pane-22 Type="4"></Pane-22>
+					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="229" DockingCY="120"></Pane-23>
+					<Pane-24 Type="1" Panes="0" DockingCX="287" DockingCY="120"></Pane-24>
+					<Pane-25 Type="2" Horiz="1" Panes="1" Pane-1="26" DockingCX="1400" DockingCY="200"></Pane-25>
+					<Pane-26 Type="1" Panes="4" Pane-1="6" Pane-2="7" Pane-3="8" Pane-4="10" Selected="10" DockingCX="855" DockingCY="120"></Pane-26>
+					<Pane-27 Type="1" Panes="0" DockingCX="200" DockingCY="120"></Pane-27>
+					<Pane-28 Type="3" TopContaner="29" WindowRectTopPos="33" WindowRectLeftPos="1206" WindowRectRightPos="1862" WindowRectBottomPos="525"></Pane-28>
+					<Pane-29 Type="2" Horiz="1" Panes="1" Pane-1="30" DockingCX="200" DockingCY="120"></Pane-29>
+					<Pane-30 Type="1" Panes="2" Pane-1="4" Pane-2="5" Selected="5" DockingCX="200" DockingCY="120"></Pane-30>
 				</Default>
 			</Dockinglayout>
-			<MainWindow Zoomed="1">
+			<MainWindow Zoomed="0">
 				<Size cx="1121" cy="1007"/>
-				<Position x="360" y="126"/>
+				<Position x="-8" y="-1"/>
 			</MainWindow>
 			<CommandBars>
 				<CommandBars>
 					<CommandBar BarID="10066" Class="CScriptToolBar" Flags="63" Style="4194304" Title="Execute Script" MRUWidth="32767">
 						<Controls OriginalControls="1">
 							<Control Id="10065" Type="4" Class="CXTPControlPopup" Caption="Execute script" TooltipText="Execute script file" CommandBarId="16777216" DescriptionText="Execute a HiSCRIPT script file."></Control>
-							<Control Id="40398" Class="CXTPControlButton" Caption="Abort script file execution" TooltipText="Abort script file execution" DescriptionText="Abort script file execution."></Control>
-							<Control Id="10051" Class="CControlScriptButton" Style="3" Caption="Reset for programming" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiScript\\LPC2000_StartupScript.scr" BeginGroup="1" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiScript\\LPC2000_StartupScript.scr"></Control>
+							<Control Id="40398" Class="CXTPControlButton"></Control>
+							<Control Id="10051" Class="CControlScriptButton" Style="3" Caption="Reset for programming" Parameter="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiScript\\LPC2000_StartupScript.scr" BeginGroup="1" TooltipText="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiScript\\LPC2000_StartupScript.scr"></Control>
 							<Control Id="10052" Class="CControlScriptButton"></Control>
-							<Control Id="10053" Class="CControlScriptButton" Style="3" Caption="Reset Application" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiSCRIPT\\reset_appl.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiSCRIPT\\reset_appl.scr"></Control>
-							<Control Id="10054" Class="CControlScriptButton" Style="3" Caption="Reset Go to main" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiSCRIPT\\reset_go_main.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiSCRIPT\\reset_go_main.scr"></Control>
+							<Control Id="10053" Class="CControlScriptButton" Style="3" Caption="Reset Application" Parameter="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiSCRIPT\\reset_appl.scr" TooltipText="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiSCRIPT\\reset_appl.scr"></Control>
+							<Control Id="10054" Class="CControlScriptButton" Style="3" Caption="Reset Go to main" Parameter="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiSCRIPT\\reset_go_main.scr" TooltipText="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiSCRIPT\\reset_go_main.scr"></Control>
 							<Control Id="10055" Class="CControlScriptButton"></Control>
-							<Control Id="10056" Class="CControlScriptButton" Style="3" Caption="Checksum" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiScript\\LPC2000_Checksum.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgab6\\HiScript\\LPC2000_Checksum.scr"></Control>
+							<Control Id="10056" Class="CControlScriptButton" Style="3" Caption="Checksum" Parameter="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiScript\\LPC2000_Checksum.scr" TooltipText="C:\\Work\\HAW\\VORLESUN\\CE\\lpc-tests\\Mp3\\HiScript\\LPC2000_Checksum.scr"></Control>
 							<Control Id="10057" Class="CControlScriptButton"></Control>
 							<Control Id="10058" Class="CControlScriptButton"></Control>
 							<Control Id="10059" Class="CControlScriptButton"></Control>
 							<Control Id="10060" Class="CControlScriptButton"></Control>
 							<OriginalControls>
 								<Control Id="10065" Type="4" Class="CXTPControlPopup" Caption="Execute script" TooltipText="Execute script file" CommandBarId="16777217" DescriptionText="Execute a HiSCRIPT script file."></Control>
-								<Control Id="40398" Class="CXTPControlButton" Caption="Abort script file execution" TooltipText="Abort script file execution" DescriptionText="Abort script file execution."></Control>
+								<Control Id="40398" Class="CXTPControlButton"></Control>
 								<Control Id="10051" Class="CControlScriptButton" BeginGroup="1"></Control>
 								<Control Id="10052" Class="CControlScriptButton"></Control>
 								<Control Id="10053" Class="CControlScriptButton"></Control>
@@ -364,17 +369,17 @@
 					</CommandBar>
 					<CommandBar Type="2" BarID="16777216" Class="CXTPPopupBar" Style="4194304" Position="5">
 						<Controls>
-							<Control Id="40399" Class="CControlExecScript" Caption="[Exec]" TooltipText="Execute script file" DescriptionText="Execute a HiSCRIPT script file."></Control>
+							<Control Id="40399" Class="CControlExecScript" Caption="[Exec]"></Control>
 						</Controls>
 					</CommandBar>
 					<CommandBar Type="2" BarID="16777217" Class="CXTPPopupBar" Style="4194304" Position="5">
 						<Controls>
-							<Control Id="40399" Class="CControlExecScript" Caption="[Exec]" TooltipText="Execute script file" DescriptionText="Execute a HiSCRIPT script file."></Control>
+							<Control Id="40399" Class="CControlExecScript" Caption="[Exec]"></Control>
 						</Controls>
 					</CommandBar>
 				</CommandBars>
 				<Layout>
-					<DockState Count="6" Version="32" ScreenSize="1680, 1050">
+					<DockState Count="6" Version="32" ScreenSize="1920, 1080">
 						<BarInfo0 BarId="1" MRUWidth="32767"></BarInfo0>
 						<BarInfo1 BarId="10066" MRUWidth="32767" PointPos="333, 49" MRUDockPos="318, 54, 634, 81"></BarInfo1>
 						<BarInfo2 BarId="9025" MRUWidth="32767" PointPos="372, 23" MRUDockPos="522, 21, 758, 48"></BarInfo2>
@@ -582,13 +587,15 @@
 			<IRQ Name="I2S" Number="31"/>
 		</Interrupts>
 	</ExceptionAssistant>
-	<StartupScript File="" ProjRelative="1"/>
-	<DownloadOptions Verify="0"/>
-	<PostLoadScript File="" ProjRelative="1"/>
-	<LinkerApplications Count="1" RelPath="1" AutoLoad="0" CurrentIdeApp="Aufgab6" AutoDetectChanges="1">
+	<StartupScript File="" Execute="1" ProjRelative="1"/>
+	<DownloadOptions Verify="0">
+		<PreLoadScript File=".\HiSCRIPT\LPC2000_StartupScript.scr" Execute="1" ProjRelative="1"/>
+	</DownloadOptions>
+	<PostLoadScript File="" Execute="1" ProjRelative="1"/>
+	<LinkerApplications Count="1" RelPath="1" AutoLoad="0" CurrentIdeApp="Mp3" AutoDetectChanges="1">
 		<Loader Id="GnuCED"/>
-		<Application Pos="0" Load="1" AppName="Aufgab6" CodeFile=".\objects\Aufgab6.htx" LinkerFile=".\objects\Aufgab6.elf" CurrentBuild="Basic">
-			<SymbolLoader ProjRel="1" MessageFile="" NeedsSymprepRun="0">
+		<Application Pos="0" Load="1" AppName="Mp3" CodeFile=".\objects\Mp3.htx" LinkerFile=".\objects\Mp3.elf" CurrentBuild="Basic">
+			<SymbolLoader ProjRel="1" MessageFile="" LoaderVersion="Version unknown" NeedsSymprepRun="0" SymbolFileFormat="V2.4.0">
 				<Options Cache="128" Reload="RELOAD" CmdFile="" DestDir=".\objects\" OnlySym="0" StdCode="" Verbose="1" CtrlFile="" WarnLevel="255">
 					<SourcePath>
 						<Path Text=".\"/>
@@ -604,25 +611,25 @@
 			<BuildConfiguration Id="Basic" File="" ToolId="IdeGnuARM" BuildCfgChanged="false">
 				<FileOptions Id="" File=".\source\interrupt.c" ToolId="" FileCfgChanged="false">
 					<General OutputPath=".\objects\" TargetName="">
-						<IncludePath Path=".\source\" Position="0"/>
-						<IncludePath Path=".\source\" Position="1"/>
+						<IncludePath Path=".\source\" Position="0"></IncludePath>
+						<IncludePath Path=".\source\" Position="1"></IncludePath>
 					</General>
-					<Compiler Defines="" Options=""/>
+					<Compiler Defines="" Options=""></Compiler>
 				</FileOptions>
 				<FileOptions Id="" File=".\source\startup.s" ToolId="" FileCfgChanged="false">
 					<General OutputPath=".\objects\" TargetName="">
-						<IncludePath Path=".\source\" Position="0"/>
-						<IncludePath Path=".\source\" Position="1"/>
+						<IncludePath Path=".\source\" Position="0"></IncludePath>
+						<IncludePath Path=".\source\" Position="1"></IncludePath>
 					</General>
-					<Assembler Options=""/>
+					<Assembler Options=""></Assembler>
 				</FileOptions>
-				<General OutputPath=".\objects\" TargetName="Aufgab6.elf">
+				<General OutputPath=".\objects\" TargetName="Mp3.elf">
 					<IncludePath Path=".\source\" Position="0"/>
 					<IncludePath Path=".\source\" Position="1"/>
 				</General>
 				<Assembler Options="-mcpu=arm7tdmi -gdwarf2 -mthumb-interwork  -EL  "/>
 				<Compiler Defines="" Options="-c -gdwarf-2 -MD -O0 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "/>
-				<Linker File=".\Settings\main.ld" Options="--cref -t -static  -lm -lc -lgcc -nostartfiles -Map=main.map  " PostBuild=""/>
+				<Linker File=".\Settings\main.ld" Options="--cref -t -static -Llib -lhelix -lm -lc -lgcc -nostartfiles -Map=main.map  " PostBuild=""/>
 			</BuildConfiguration>
 		</Application>
 	</LinkerApplications>
