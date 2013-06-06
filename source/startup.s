@@ -109,24 +109,32 @@ Start_init_s:
 start:
 # ---------------------------------------------
 # Micro controller specific code
+# Execute only in real HW
+# Real HW is detected thru boot rom code
 # ---------------------------------------------
 
+				.equ BootRomAdr,0x7ffffff0
+				
+				ldr r0,=BootRomAdr
+				ldr r0,[r0]
+				teq r0,#0
+				beq SkipControllerSpecificCode
 
                 RegWrite PCLKSEL0, ( 0 | ( 1<<6 ) )
                 RegWrite PCLKSEL1, ( 0 | ( 1<<16 ) )
-                setup_MAM      __MAM_fully_enabled, 3
-                # Clock Source: Main Oszillator 4.000 MHz, use Port 0 and Port 1 as legacy IO.
+                setup_MAM      __MAM_partly_enabled, 3
+                # Clock Source: Main Oszillator 4.000 MHz, use Port 0 and Port 1 as Fast IO.
                 RegWrite    SCS, 0x20
                 # Wait for external oscillator ready
                 RegWait     SCS, 0x40
                 # Connect to oscillator
                 RegWrite    CLKSRCSEL, 1
 
-                RegWrite	CCLKCFG, 3
+                RegWrite	CCLKCFG, 5
                 RegWrite	USBCLKCFG, 5
                 setup_PLL	71, 1
 
-
+SkipControllerSpecificCode:
 # ---------------------------------------------
 # Setup stacks for the operating modes
 # ---------------------------------------------
@@ -174,7 +182,7 @@ start:
 ##-- Alfred Lomann   HAW-Hamburg
 # Enter the C code
 				mov		r0, #0
-				mov		r1, #0
+				mov		r1, #0        
 	    		BL      main
 	    
 ##-- should nver return here, but in case we have an
