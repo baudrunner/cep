@@ -25,6 +25,7 @@ INPUT 	(
 /* Leave this unchanged!                                               */
 .\objects\main.o
 .\objects\mp3.o
+.\objects\spi.o
 .\objects\startup.o
 .\objects\ConfigStick.o
 .\objects\armVIC.o
