@@ -8,21 +8,22 @@
 			<List Id="" BkColor="16777215" TextColor="0" DisableColSizing="0">
 				<Header Bold="1"/>
 				<Column Id="0" Order="0" Title="State" Width="24" Visible="1" Alignment="LEFT"/>
-				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1721988" Alignment="LEFT"/>
-				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324638" Alignment="LEFT"/>
-				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953778" Alignment="LEFT"/>
+				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1721998" Alignment="LEFT"/>
+				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324648" Alignment="LEFT"/>
+				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953788" Alignment="LEFT"/>
 			</List>
 			<Tabs Count="0"/>
 		</Window>
 		<Window Id="Source">
-			<Tabs Count="7" Active="1">
-				<Tab Pos="0" Module="main.c" TopLine="97" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
-				<Tab Pos="1" Module="startup" TopLine="75" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
-				<Tab Pos="2" Module="uart" TopLine="7" FilePath="$(PROJECTDIR)\libfkt\uart.c" Application="Mp3"/>
-				<Tab Pos="3" Module="mp3dec.h" TopLine="72" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
-				<Tab Pos="4" Module="mp3.c" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.c" Application=""/>
-				<Tab Pos="5" Module="mp3.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.h" Application=""/>
-				<Tab Pos="6" Module="lpc24xx.h" TopLine="1" FilePath="$(PROJECTDIR)\source\lpc24xx.h" Application=""/>
+			<Tabs Count="8" Active="6">
+				<Tab Pos="0" Module="main.c" TopLine="5" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
+				<Tab Pos="1" Module="spi.h" TopLine="1" FilePath="$(PROJECTDIR)\source\spi.h" Application=""/>
+				<Tab Pos="2" Module="spi.c" TopLine="1" FilePath="$(PROJECTDIR)\source\spi.c" Application=""/>
+				<Tab Pos="3" Module="mp3.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.h" Application=""/>
+				<Tab Pos="4" Module="mp3" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.c" Application="Mp3"/>
+				<Tab Pos="5" Module="uart" TopLine="340" FilePath="$(PROJECTDIR)\libfkt\uart.c" Application="Mp3"/>
+				<Tab Pos="6" Module="startup" TopLine="162" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
+				<Tab Pos="7" Module="mp3dec.h" TopLine="101" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
 			</Tabs>
 			<UpdateOnRunning Update="0"/>
 			<WindowState State="Maximized"></WindowState>
@@ -35,7 +36,7 @@
 				<Position x="-4" y="-23"></Position>
 			</Rectangle>
 			<Rectangle State="Maximized">
-				<Size cx="903" cy="695"></Size>
+				<Size cx="1438" cy="705"></Size>
 				<Position x="-4" y="-30"></Position>
 			</Rectangle>
 		</Window>
@@ -143,6 +144,7 @@
 				<Folder Id="Source Files" State="Expanded">
 					<File Id=".\source\main.c"/>
 					<File Id=".\source\mp3.c"/>
+					<File Id=".\source\spi.c"/>
 					<File Id=".\source\startup.s"/>
 				</Folder>
 				<Folder Id="Header Files" State="Expanded">
@@ -150,8 +152,9 @@
 					<File Id=".\source\lpc24xx.h"/>
 					<File Id=".\source\mp3.h"/>
 					<File Id=".\source\mp3dec.h"/>
+					<File Id=".\source\spi.h"/>
 				</Folder>
-				<Folder Id="Other Files" State="Not_Expanded">
+				<Folder Id="Other Files" State="Expanded">
 					<File Id=".\info.txt"/>
 				</Folder>
 				<Folder Id="libfkt" State="Expanded">
@@ -259,7 +262,7 @@
 	</Directories>
 	<Applications>
 		<AppPath Id="main">$(PROJECTDIR)\objects\</AppPath>
-		<AppPath Id="Mp3">C:\Documents and Settings\abg573\Desktop\CE\HTM\A6\objects\</AppPath>
+		<AppPath Id="Mp3">C:\Documents and Settings\abb867\Desktop\hitopwork\Aufgabe6\objects\</AppPath>
 	</Applications>
 	<HitopObjects>
 		<MiniSequences/>
@@ -281,7 +284,7 @@
 						<Position x="-4" y="-23"></Position>
 					</Rectangle>
 					<Rectangle State="Maximized">
-						<Size cx="903" cy="695"></Size>
+						<Size cx="1438" cy="705"></Size>
 						<Position x="-4" y="-30"></Position>
 					</Rectangle>
 				</Window>
@@ -305,7 +308,7 @@
 				<Default>
 					<Summary Panes="28" Client="24" TopContainer="17"></Summary>
 					<Pane-1 ID="40364" Type="0" Title="Workspace - ModuleView\nModuleView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-1>
-					<Pane-2 ID="40365" Tag="75465000" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
+					<Pane-2 ID="40365" Tag="101906224" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
 					<Pane-3 ID="40100" Tag="61470472" Type="0" Title="Register" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-3>
 					<Pane-4 ID="40110" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-4>
 					<Pane-5 ID="10001" Type="0" Title="Output" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-5>
@@ -322,11 +325,11 @@
 					<Pane-16 Type="1" Panes="0" DockingCX="200" DockingCY="120"></Pane-16>
 					<Pane-17 Type="2" Panes="1" Pane-1="18" DockingCY="872"></Pane-17>
 					<Pane-18 Type="2" Panes="2" Pane-1="19" Pane-2="27" DockingCX="791" DockingCY="877"></Pane-18>
-					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="668"></Pane-19>
+					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="678"></Pane-19>
 					<Pane-20 Type="2" Panes="1" Pane-1="21" DockingCX="1167"></Pane-20>
 					<Pane-21 Type="2" Horiz="1" Panes="2" Pane-1="22" Pane-2="23" DockingCX="1400" DockingCY="342"></Pane-21>
 					<Pane-22 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="246" DockingCY="120"></Pane-22>
-					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="895"></Pane-23>
+					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="1430"></Pane-23>
 					<Pane-24 Type="4"></Pane-24>
 					<Pane-25 Type="2" Panes="1" Pane-1="26" DockingCX="229" DockingCY="120"></Pane-25>
 					<Pane-26 Type="1" Panes="0" DockingCX="287" DockingCY="120"></Pane-26>
@@ -334,8 +337,8 @@
 					<Pane-28 Type="1" Panes="6" Pane-1="6" Pane-2="7" Pane-3="8" Pane-4="10" Pane-5="4" Pane-6="5" Selected="5" DockingCX="855" DockingCY="120"></Pane-28>
 				</Default>
 			</Dockinglayout>
-			<MainWindow Zoomed="0">
-				<Size cx="1154" cy="1021"/>
+			<MainWindow Zoomed="1">
+				<Size cx="1214" cy="1022"/>
 				<Position x="0" y="0"/>
 			</MainWindow>
 			<CommandBars>
@@ -344,12 +347,12 @@
 						<Controls OriginalControls="1">
 							<Control Id="10065" Type="4" Class="CXTPControlPopup" Caption="Execute script" TooltipText="Execute script file" CommandBarId="16777216" DescriptionText="Execute a HiSCRIPT script file."></Control>
 							<Control Id="40398" Class="CXTPControlButton" Caption="Abort script file execution" TooltipText="Abort script file execution" DescriptionText="Abort script file execution."></Control>
-							<Control Id="10051" Class="CControlScriptButton" Style="3" Caption="Reset for programming" Parameter="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiScript\\LPC2000_StartupScript.scr" BeginGroup="1" TooltipText="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiScript\\LPC2000_StartupScript.scr"></Control>
+							<Control Id="10051" Class="CControlScriptButton" Style="3" Caption="Reset for programming" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiScript\\LPC2000_StartupScript.scr" BeginGroup="1" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiScript\\LPC2000_StartupScript.scr"></Control>
 							<Control Id="10052" Class="CControlScriptButton"></Control>
-							<Control Id="10053" Class="CControlScriptButton" Style="3" Caption="Reset Application" Parameter="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiSCRIPT\\reset_appl.scr" TooltipText="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiSCRIPT\\reset_appl.scr"></Control>
-							<Control Id="10054" Class="CControlScriptButton" Style="3" Caption="Reset Go to main" Parameter="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiSCRIPT\\reset_go_main.scr" TooltipText="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiSCRIPT\\reset_go_main.scr"></Control>
+							<Control Id="10053" Class="CControlScriptButton" Style="3" Caption="Reset Application" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiSCRIPT\\reset_appl.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiSCRIPT\\reset_appl.scr"></Control>
+							<Control Id="10054" Class="CControlScriptButton" Style="3" Caption="Reset Go to main" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiSCRIPT\\reset_go_main.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiSCRIPT\\reset_go_main.scr"></Control>
 							<Control Id="10055" Class="CControlScriptButton"></Control>
-							<Control Id="10056" Class="CControlScriptButton" Style="3" Caption="Checksum" Parameter="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiScript\\LPC2000_Checksum.scr" TooltipText="C:\\Documents and Settings\\abg573\\Desktop\\CE\\HTM\\A6\\HiScript\\LPC2000_Checksum.scr"></Control>
+							<Control Id="10056" Class="CControlScriptButton" Style="3" Caption="Checksum" Parameter="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiScript\\LPC2000_Checksum.scr" TooltipText="C:\\Documents and Settings\\abb867\\Desktop\\hitopwork\\Aufgabe6\\HiScript\\LPC2000_Checksum.scr"></Control>
 							<Control Id="10057" Class="CControlScriptButton"></Control>
 							<Control Id="10058" Class="CControlScriptButton"></Control>
 							<Control Id="10059" Class="CControlScriptButton"></Control>
@@ -384,7 +387,7 @@
 				<Layout>
 					<DockState Count="6" Version="32" ScreenSize="1680, 1050">
 						<BarInfo0 BarId="1" MRUWidth="32767"></BarInfo0>
-						<BarInfo1 BarId="10066" MRUWidth="32767" PointPos="333, 49" MRUDockPos="318, 54, 634, 81"></BarInfo1>
+						<BarInfo1 BarId="10066" MRUWidth="32767" PointPos="335, 49" MRUDockPos="335, 47, 974, 73"></BarInfo1>
 						<BarInfo2 BarId="9025" MRUWidth="32767" PointPos="372, 23" MRUDockPos="522, 21, 758, 48"></BarInfo2>
 						<BarInfo3 BarId="9017" MRUWidth="32767" PointPos="600, 23" MRUDockPos="600, 18, 761, 45"></BarInfo3>
 						<BarInfo4 BarId="4004" MRUWidth="32767" PointPos="0, 49" MRUDockPos="-4, 57, 319, 84"></BarInfo4>

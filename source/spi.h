@@ -31,6 +31,8 @@
 #define BLOCKSIZE_32K 2
 #define BLOCKSIZE_64K 3
 
+#define CHUNKSIZE 256
+
 #define DUMMY_BYTE 0xFF
 #define RDY_BIT 0x01
 
@@ -61,6 +63,7 @@ void spiFlashMemErase(int destAddr, int blockSizeDef, int spiDescriptor);
 void spiFlashMemWrite(int dstAddr, char *data, int count, int spiDescriptor);
 int  spiFlashMemRead(int srcAddr, char *destAddr, int count, int spiDescriptor);
 void eraseChip(int spiDescriptor);
+void spiReadBytes(unsigned char* dstBuf,int cnt, int srcAddr, int spiDesc);
 void readSpecs();
 void menue();
 int  testSpiMem();

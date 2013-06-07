@@ -73,6 +73,31 @@ void sspInit(){
     SSP0_CPSR = 4;//20                                       // 48MHz/20 = 2400KHz - well suited for oscilloscope
 }
 
+
+void spiReadBytes(unsigned char* dstBuf, int cnt, int srcAddr, int spiDesc){
+	
+	//char *dstBuf = malloc(cnt);
+	int chunksize = CHUNKSIZE;	
+
+	//if(data == NULL){
+		//printf("ERROR malloc(cnt) in spiReadBytes() failed!!\n");
+		//while(1){}
+	//}	
+
+	unsigned char *writeTo;
+	unsigned char *readTill = dstBuf + cnt;
+	
+	for(writeTo = dstBuf; (writeTo + chunksize) <= readTill; writeTo += chunksize){
+		spiFlashMemRead(srcAddr , (char *)writeTo, chunksize, spiDesc);
+		srcAddr += chunksize;
+	}
+
+	if(	writeTo < (dstBuf + cnt)){
+		chunksize = readTill - writeTo;
+		spiFlashMemRead(srcAddr , (char *)writeTo, chunksize, spiDesc);
+	}		
+}
+
 void eraseChip(int spiDescriptor){
 	printf("loesche gesamten Speicher...\n");
 	spiFlashMemSetWriteEnable(spiDescriptor);

@@ -25,4 +25,4 @@ objects\spi.o: source\spi.c \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/stdint.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/malloc.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/malloc.h \
-  source\/mp3.h source\/mp3dec.h source\/spi.h
+  source\/mp3.h source\/mp3dec.h source\/spi.h source\/spi.h

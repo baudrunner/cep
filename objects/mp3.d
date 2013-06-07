@@ -18,4 +18,9 @@ objects\mp3.o: source\mp3.c source\/mp3.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/types.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/sys/features.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/sys/stdio.h \
-  source\/mp3dec.h
+  source\/mp3dec.h \
+  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/inttypes.h \
+  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/stdint.h \
+  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/string.h \
+  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/sys/string.h \
+  source\/spi.h
