@@ -22,4 +22,5 @@ objects\main.o: source\main.c source\/spi.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/inttypes.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/stdint.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/malloc.h \
-  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/malloc.h
+  /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/malloc.h \
+  source\/mp3.h source\/mp3dec.h

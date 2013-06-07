@@ -3,18 +3,11 @@
 #include <string.h> //memset
 #include "lpc24xx.h"
 #include "config.h"
-
 #include "portlcd.h"
 #include "fio.h"
 #include "malloc.h"
 #include "mp3.h"
 #include "spi.h"
-
-//#define ARM
-//#include "mp3dec.h"
-
-#define CPUFREQ 72000000
-
 
 // macro converts binary value (containing up to 8 bits resp. <=0xFF) to unsigned decimal value
 // as substitute for missing 0b prefix for binary coded numeric literals.

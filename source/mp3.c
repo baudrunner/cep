@@ -12,8 +12,6 @@ int initMp3Module(char *buffer){
 		printf("mp3 Decoder initialisiert!\n");
 	}
 	
-
-	
 	int nextSyncWord = MP3FindSyncWord((unsigned char*)buffer, 2048);
 
     printf("nextSyncWord = %d\n",nextSyncWord);	
