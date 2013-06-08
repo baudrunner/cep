@@ -13,8 +13,10 @@
 #define OUTSIZE (MAX_NGRAN*MAX_NCHAN*MAX_NSAMP)
 #define NUMOFCHAN 2
 
-int initMp3Module(char *buffer);
+int initMp3Module(void);
 void fillBuffer(void);
+void mp3Cleanup(void);
+void decodeMp3(void);
 
 
 

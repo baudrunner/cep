@@ -3,10 +3,11 @@
 int16_t outBuf[NUMOFCHAN][OUTSIZE];
 unsigned char inputBuffer[MAINBUF_SIZE];
 unsigned char *inBuf = &inputBuffer[0];
+int spiDataPosition = 0;
 int bytesLeft;
 HMP3Decoder mp3Dec;
 
-int initMp3Module(char *buffer){
+int initMp3Module(void){
 
 	printf("initialisiere mp3 Decoder...\n");
 	mp3Dec = MP3InitDecoder();
@@ -17,22 +18,26 @@ int initMp3Module(char *buffer){
 		printf("mp3 Decoder initialisiert!\n");
 	}
 	
-	int nextSyncWord = MP3FindSyncWord((unsigned char*)buffer, 2048); 
+	//int nextSyncWord = MP3FindSyncWord((unsigned char*)inBuf, MAINBUF_SIZE); 
 
-    printf("nextSyncWord = %d\n",nextSyncWord);	
+    //printf("nextSyncWord = %d\n",nextSyncWord);	
 
 
 	//void MP3GetLastFrameInfo(HMP3Decoder hMP3Decoder,MP3FrameInfo *mp3FrameInfo);
 
+	spiDataPosition	= 0;
+
+	bytesLeft = 0;
+	//unsigned char *pInput;
+	//inBuf = (unsigned char *)inBuf + nextSyncWord;
+
+	//inBuf = &inputBuffer[0] + nextSyncWord;
+	inBuf = &inputBuffer[0];	
+	printf("inBuf= %p\ninputBuffer= %p\n",inBuf,inputBuffer);
 	
 
-	int bytesLeft = MAINBUF_SIZE;
-	unsigned char *pInput;
-	pInput = (unsigned char *)buffer + nextSyncWord;
 
-	printf("pInput= %p\nbuffer= %p\nnextSyncWord= %d\n",pInput,buffer,nextSyncWord);
-	inBuf = &inputBuffer[0] + nextSyncWord;
-
+/*
 	MP3FrameInfo mp3FrameInfo;
 
 	int mp3DecodeResu = MP3Decode(mp3Dec, &pInput, &bytesLeft, outBuf[1], 0);
@@ -53,7 +58,7 @@ int initMp3Module(char *buffer){
 	printf("MP3FreeDecoder()...\n");
 	MP3FreeDecoder(mp3Dec);	
 
-
+*/
 
 
 	//printf("adresse von : outBuf %p\n", outBuf[1]);
@@ -84,19 +89,65 @@ int initMp3Module(char *buffer){
 
 }
 
-void fillBuffer(){
+void decodeMp3(void){
+	
+	MP3FrameInfo mp3FrameInfo;
+
+    int nextSyncWord = 0;
+
+	if(bytesLeft == 0){
+		printf("%d bytesLeft --> neues Syncword finden!\n",bytesLeft);
+		nextSyncWord = MP3FindSyncWord((unsigned char*)inBuf, MAINBUF_SIZE); 
+ 		printf("nextSyncWord = %d\n",nextSyncWord);	
+		bytesLeft = MAINBUF_SIZE - nextSyncWord;	
+	}
+    
+	
+	printf("decoding %d Bytes\n",bytesLeft);
+	int mp3DecodeResu = MP3Decode(mp3Dec, (&inBuf + nextSyncWord), &bytesLeft, outBuf[1], 0);
+	printf("mp3DecodeResu= %d\n",mp3DecodeResu);
+	
+
+	MP3GetLastFrameInfo(mp3Dec, &mp3FrameInfo);
+
+	printf("#######  MP3 HEADER  ########\n");	
+	printf("# bitrate =      %10d #\n", mp3FrameInfo.bitrate);
+	printf("# nChans =       %10d #\n", mp3FrameInfo.nChans);
+	printf("# samprate =     %10d #\n", mp3FrameInfo.samprate);
+	printf("# bitsPerSample =%10d #\n", mp3FrameInfo.bitsPerSample);
+	printf("# outputSamps =  %10d #\n", mp3FrameInfo.outputSamps);
+	printf("# layer =        %10d #\n", mp3FrameInfo.layer);	
+	printf("# version =      %10d #\n", mp3FrameInfo.version);	
+	printf("#############################\n");		
+
+	printf("bytesLeft after decode: %d\n",bytesLeft);
+}
+
+void fillBuffer(void){
 
 	//bytesLeft = MAINBUF_SIZE;
 	
 	//unsigned char *pInput;
 	//pInput = (unsigned char *)buffer + nextSyncWord;
 
-	//printf("pInput= %p\nbuffer= %p\nnextSyncWord= %d\n",pInput,buffer,nextSyncWord);
 	
-
+	
+	printf("moving %d Bytes from Address %p  to startAdress of inBuf\n",bytesLeft,inBuf + (MAINBUF_SIZE -bytesLeft));
 	memmove(inBuf, (unsigned char*)inBuf + (MAINBUF_SIZE -bytesLeft), bytesLeft);
 
-	spiReadBytes(inBuf, MAINBUF_SIZE - bytesLeft, 0, SPI_INT);
+	printf("read %d Bytes from spiDataPosition= %d and fillBuffer @Address= %p  with it  ->bytesLeft= %d\n",(MAINBUF_SIZE -bytesLeft),spiDataPosition,inBuf,bytesLeft);	
+	
+	int nBytesToRead = (MAINBUF_SIZE - bytesLeft);
+	spiReadBytes(inBuf, nBytesToRead, spiDataPosition, SPI_INT);
+	spiDataPosition += nBytesToRead;
+
+}
+
+
+void mp3Cleanup(){
+
+	printf("MP3FreeDecoder()...\n");
+	MP3FreeDecoder(mp3Dec);	
 
 }
 

@@ -6,7 +6,6 @@
 #include "fio.h"
 #include "malloc.h"
 #include "outline.h"
-#include "tables.h"
 
 char stringBufferForLcdPrint[33]; //16 stellen pro LCD-Zeile + term. null
 
@@ -19,7 +18,6 @@ int running = 0;
 int timerRunning = 0;
 int printCount = 0;
 int isrBufferIdx = 0;
-int *table_wave =  (int*)table_sin;
 int freq_signal = 440;
 int a_fixpoint = 30504029;
 int b_fixpoint = 621;

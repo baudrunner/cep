@@ -17,10 +17,26 @@ int main( void ){
 	printf("main gestartet!\n");		
 
 	//int buffersize = MAINBUF_SIZE;  //1940
+	
+
+
 
 	fillBuffer();
+	initMp3Module();	
+	decodeMp3();
+	fillBuffer();	
+	
+	/*
+	int i;
+	for(i = 0; i < 3; i++){
+		decodeMp3();
+		fillBuffer();
+	}*/
+    
 
+	mp3Cleanup();
 
+	
 	//char *data = spiReadBytes(buffersize, 0, SPI_INT);
 		
 	//menue();
