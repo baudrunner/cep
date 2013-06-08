@@ -21,10 +21,11 @@ int main( void ){
 
 
 
-	fillBuffer();
+	//fillBuffer();
 	initMp3Module();	
 	decodeMp3();
 	fillBuffer();	
+	decodeMp3();	
 	
 	/*
 	int i;
