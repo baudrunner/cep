@@ -24,5 +24,5 @@ objects\audioOut.o: source\audioOut.c \
   libfkt/portlcd.h libfkt/fio.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/malloc.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/malloc.h \
-  source\/interrupt.h source\/lpc24xx.h source\/audioOut.h \
-  source\/audioOut.h
+  source\/isrRoutine.h source\/lpc24xx.h source\/constants.h \
+  source\/audioOut.h source\/isrRoutine.h

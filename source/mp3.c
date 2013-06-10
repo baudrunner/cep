@@ -1,7 +1,5 @@
 #include "mp3.h"
 
-
-
 unsigned char inputBuffer[READBUF_SIZE];
 unsigned char *inBufPtr;
 int spiDataPosition = 0;

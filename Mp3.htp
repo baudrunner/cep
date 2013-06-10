@@ -8,25 +8,25 @@
 			<List Id="" BkColor="16777215" TextColor="0" DisableColSizing="0">
 				<Header Bold="1"/>
 				<Column Id="0" Order="0" Title="State" Width="24" Visible="1" Alignment="LEFT"/>
-				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1722058" Alignment="LEFT"/>
-				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324708" Alignment="LEFT"/>
-				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953848" Alignment="LEFT"/>
+				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1722098" Alignment="LEFT"/>
+				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324748" Alignment="LEFT"/>
+				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953888" Alignment="LEFT"/>
 			</List>
 			<Tabs Count="0"/>
 		</Window>
 		<Window Id="Source">
-			<Tabs Count="11" Active="0">
-				<Tab Pos="0" Module="main.c" TopLine="21" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
-				<Tab Pos="1" Module="spi.h" TopLine="41" FilePath="$(PROJECTDIR)\source\spi.h" Application=""/>
-				<Tab Pos="2" Module="spi.c" TopLine="74" FilePath="$(PROJECTDIR)\source\spi.c" Application=""/>
-				<Tab Pos="3" Module="mp3.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.h" Application=""/>
-				<Tab Pos="4" Module="mp3" TopLine="65" FilePath="$(PROJECTDIR)\source\mp3.c" Application="Mp3"/>
-				<Tab Pos="5" Module="outline.c" TopLine="45" FilePath="$(PROJECTDIR)\source\outline.c" Application=""/>
-				<Tab Pos="6" Module="outline.h" TopLine="1" FilePath="$(PROJECTDIR)\source\outline.h" Application=""/>
-				<Tab Pos="7" Module="startup" TopLine="76" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
-				<Tab Pos="8" Module="mp3dec.h" TopLine="93" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
-				<Tab Pos="9" Module="uart" TopLine="341" FilePath="$(PROJECTDIR)\libfkt\uart.c" Application="Mp3"/>
-				<Tab Pos="10" Module="interrupt" TopLine="88" FilePath="$(PROJECTDIR)\libfkt\interrupt.c" Application="Mp3"/>
+			<Tabs Count="11" Active="3">
+				<Tab Pos="0" Module="mp3.c" TopLine="81" FilePath="$(PROJECTDIR)\source\mp3.c" Application=""/>
+				<Tab Pos="1" Module="audioOut.h" TopLine="1" FilePath="$(PROJECTDIR)\source\audioOut.h" Application=""/>
+				<Tab Pos="2" Module="constants.h" TopLine="9" FilePath="$(PROJECTDIR)\source\constants.h" Application=""/>
+				<Tab Pos="3" Module="main.c" TopLine="15" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
+				<Tab Pos="4" Module="audioOut.c" TopLine="5" FilePath="$(PROJECTDIR)\source\audioOut.c" Application=""/>
+				<Tab Pos="5" Module="isrRoutine.h" TopLine="1" FilePath="$(PROJECTDIR)\source\isrRoutine.h" Application=""/>
+				<Tab Pos="6" Module="mp3.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.h" Application=""/>
+				<Tab Pos="7" Module="mp3dec.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
+				<Tab Pos="8" Module="spi.h" TopLine="1" FilePath="$(PROJECTDIR)\source\spi.h" Application=""/>
+				<Tab Pos="9" Module="isrRoutine.c" TopLine="1" FilePath="$(PROJECTDIR)\source\isrRoutine.c" Application=""/>
+				<Tab Pos="10" Module="startup" TopLine="75" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
 			</Tabs>
 			<UpdateOnRunning Update="0"/>
 			<WindowState State="Maximized"></WindowState>
@@ -39,7 +39,7 @@
 				<Position x="-4" y="-23"></Position>
 			</Rectangle>
 			<Rectangle State="Maximized">
-				<Size cx="1231" cy="652"></Size>
+				<Size cx="1515" cy="722"></Size>
 				<Position x="-4" y="-30"></Position>
 			</Rectangle>
 		</Window>
@@ -78,8 +78,8 @@
 					<DisplayMode Mode="0"/>
 					<List Id="" BkColor="16777215" SortAsc="1" SortCol="-1" TextColor="0" DisableColSizing="0">
 						<Header Bold="1"/>
-						<Column Id="12" Order="0" Title="Variables" Visible="1" RelWidth="0.3722638" Alignment="LEFT"/>
-						<Column Id="13" Order="1" Title="Value" Visible="1" RelWidth="0.6277378" Alignment="LEFT"/>
+						<Column Id="12" Order="0" Title="Variables" Visible="1" RelWidth="0.3722648" Alignment="LEFT"/>
+						<Column Id="13" Order="1" Title="Value" Visible="1" RelWidth="0.6277388" Alignment="LEFT"/>
 					</List>
 				</Tab>
 				<Tab Pos="1" Title="Watch1">
@@ -87,9 +87,9 @@
 					<DisplayMode Mode="0"/>
 					<List Id="" BkColor="16777215" SortAsc="1" SortCol="-1" TextColor="0" DisableColSizing="0">
 						<Header Bold="1"/>
-						<Column Id="11" Order="0" Title="ID" Visible="1" RelWidth="0.1941188" Alignment="LEFT"/>
-						<Column Id="12" Order="1" Title="Expression" Visible="1" RelWidth="0.3000008" Alignment="LEFT"/>
-						<Column Id="13" Order="2" Title="Value" Visible="1" RelWidth="0.5058828" Alignment="LEFT"/>
+						<Column Id="11" Order="0" Title="ID" Visible="1" RelWidth="0.1941198" Alignment="LEFT"/>
+						<Column Id="12" Order="1" Title="Expression" Visible="1" RelWidth="0.3000018" Alignment="LEFT"/>
+						<Column Id="13" Order="2" Title="Value" Visible="1" RelWidth="0.5058838" Alignment="LEFT"/>
 						<Watches/>
 					</List>
 				</Tab>
@@ -98,9 +98,9 @@
 					<DisplayMode Mode="0"/>
 					<List Id="" BkColor="16777215" SortAsc="1" SortCol="-1" TextColor="0" DisableColSizing="0">
 						<Header Bold="1"/>
-						<Column Id="11" Order="0" Title="ID" Visible="1" RelWidth="0.1941288" Alignment="LEFT"/>
-						<Column Id="12" Order="1" Title="Expression" Visible="1" RelWidth="0.3000108" Alignment="LEFT"/>
-						<Column Id="13" Order="2" Title="Value" Visible="1" RelWidth="0.5058928" Alignment="LEFT"/>
+						<Column Id="11" Order="0" Title="ID" Visible="1" RelWidth="0.1941298" Alignment="LEFT"/>
+						<Column Id="12" Order="1" Title="Expression" Visible="1" RelWidth="0.3000118" Alignment="LEFT"/>
+						<Column Id="13" Order="2" Title="Value" Visible="1" RelWidth="0.5058938" Alignment="LEFT"/>
 						<Watches/>
 					</List>
 				</Tab>
@@ -112,12 +112,12 @@
 					<UpdateOnRunning Update="0"/>
 					<List Id="" BkColor="16777215" TextColor="0" DisableColSizing="0">
 						<Memory Format="BYTE" SymbolicAddresses="1">
-							<Address Hex=""/>
+							<Address Hex="0x00000000" Symbol="_startup"/>
 						</Memory>
 						<Header Bold="1"/>
 						<Column Id="11" Order="0" Title="Address" Width="94" Visible="1" Alignment="RIGHT"/>
-						<Column Id="12" Order="1" Title="Data" Visible="1" Alignment="LEFT"/>
-						<Column Id="13" Order="2" Title="ASCII" Visible="1" Alignment="LEFT"/>
+						<Column Id="12" Order="1" Title="Data" Width="398" Visible="1" Alignment="LEFT"/>
+						<Column Id="13" Order="2" Title="ASCII" Width="142" Visible="1" Alignment="LEFT"/>
 					</List>
 				</Tab>
 			</Tabs>
@@ -145,18 +145,21 @@
 		<Window Id="FileView" RelativePath="Relative2Project">
 			<ApplFolder Id="Mp3" State="Expanded">
 				<Folder Id="Source Files" State="Expanded">
+					<File Id=".\source\audioOut.c"/>
+					<File Id=".\source\isrRoutine.c"/>
 					<File Id=".\source\main.c"/>
 					<File Id=".\source\mp3.c"/>
-					<File Id=".\source\outline.c"/>
 					<File Id=".\source\spi.c"/>
 					<File Id=".\source\startup.s"/>
 				</Folder>
 				<Folder Id="Header Files" State="Expanded">
+					<File Id=".\source\audioOut.h"/>
 					<File Id=".\source\config.h"/>
+					<File Id=".\source\constants.h"/>
+					<File Id=".\source\isrRoutine.h"/>
 					<File Id=".\source\lpc24xx.h"/>
 					<File Id=".\source\mp3.h"/>
 					<File Id=".\source\mp3dec.h"/>
-					<File Id=".\source\outline.h"/>
 					<File Id=".\source\spi.h"/>
 				</Folder>
 				<Folder Id="Other Files" State="Expanded">
@@ -263,7 +266,7 @@
 		</GeneralSettings>
 	</ConfigurationOptions>
 	<Directories>
-		<Directory Id="ProjectAddApplication" Dir="C:\Work\HAW\VORLESUN\CE\lpc-tests\Mp3\objects\Mp3.elf"/>
+		<Directory Id="ProjectAddApplication" Dir="C:\Documents and Settings\abg573\Desktop\CE\HTM\A6\objects\Mp3.elf"/>
 	</Directories>
 	<Applications>
 		<AppPath Id="main">$(PROJECTDIR)\objects\</AppPath>
@@ -290,7 +293,7 @@
 						<Position x="-4" y="-23"></Position>
 					</Rectangle>
 					<Rectangle State="Maximized">
-						<Size cx="1231" cy="652"></Size>
+						<Size cx="1515" cy="722"></Size>
 						<Position x="-4" y="-30"></Position>
 					</Rectangle>
 				</Window>
@@ -314,15 +317,15 @@
 				<Default>
 					<Summary Panes="28" Client="24" TopContainer="17"></Summary>
 					<Pane-1 ID="40364" Type="0" Title="Workspace - ModuleView\nModuleView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-1>
-					<Pane-2 ID="40365" Tag="106868792" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
+					<Pane-2 ID="40365" Tag="109556264" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
 					<Pane-3 ID="40100" Tag="61470472" Type="0" Title="Register" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-3>
-					<Pane-4 ID="40110" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-4>
+					<Pane-4 ID="40110" Tag="103595920" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-4>
 					<Pane-5 ID="10001" Type="0" Title="Output" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-5>
-					<Pane-6 ID="40000" Type="0" Title="Watch - Locals\nLocals" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-6>
-					<Pane-7 ID="40001" Type="0" Title="Watch - Watch1\nWatch1" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-7>
-					<Pane-8 ID="40050" Type="0" Title="Memory - Mem0\nMem0" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-8>
+					<Pane-6 ID="40000" Tag="104174032" Type="0" Title="Watch - Locals\nLocals" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-6>
+					<Pane-7 ID="40001" Tag="113040584" Type="0" Title="Watch - Watch1\nWatch1" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-7>
+					<Pane-8 ID="40050" Tag="113036312" Type="0" Title="Memory - Mem0\nMem0" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-8>
 					<Pane-9 ID="40932" Type="0" Title="Emulator State" DockingCX="200" DockingCY="120" LastHolder="26" DockingHolder="26"></Pane-9>
-					<Pane-10 ID="40002" Tag="75398304" Type="0" Title="Watch - Watch2\nWatch2" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-10>
+					<Pane-10 ID="40002" Tag="113092056" Type="0" Title="Watch - Watch2\nWatch2" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28"></Pane-10>
 					<Pane-11 Type="5" Panes="0" Direction="0"></Pane-11>
 					<Pane-12 Type="5" Panes="0" Direction="1"></Pane-12>
 					<Pane-13 Type="5" Panes="0" Direction="3"></Pane-13>
@@ -330,22 +333,22 @@
 					<Pane-15 Type="2" Horiz="1" Panes="1" Pane-1="16" DockingCX="200" DockingCY="120"></Pane-15>
 					<Pane-16 Type="1" Panes="0" DockingCX="200" DockingCY="120"></Pane-16>
 					<Pane-17 Type="2" Panes="1" Pane-1="18" DockingCY="872"></Pane-17>
-					<Pane-18 Type="2" Panes="2" Pane-1="19" Pane-2="27" DockingCX="791" DockingCY="882"></Pane-18>
-					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="625"></Pane-19>
+					<Pane-18 Type="2" Panes="2" Pane-1="19" Pane-2="27" DockingCX="791" DockingCY="880"></Pane-18>
+					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="695"></Pane-19>
 					<Pane-20 Type="2" Panes="1" Pane-1="21" DockingCX="1167"></Pane-20>
 					<Pane-21 Type="2" Horiz="1" Panes="2" Pane-1="22" Pane-2="23" DockingCX="972" DockingCY="342"></Pane-21>
 					<Pane-22 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="169" DockingCY="120"></Pane-22>
-					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="1223"></Pane-23>
+					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="1507"></Pane-23>
 					<Pane-24 Type="4"></Pane-24>
 					<Pane-25 Type="2" Panes="1" Pane-1="26" DockingCX="229" DockingCY="120"></Pane-25>
 					<Pane-26 Type="1" Panes="0" DockingCX="287" DockingCY="120"></Pane-26>
-					<Pane-27 Type="2" Horiz="1" Panes="1" Pane-1="28" DockingCX="1400" DockingCY="250"></Pane-27>
+					<Pane-27 Type="2" Horiz="1" Panes="1" Pane-1="28" DockingCX="1400" DockingCY="181"></Pane-27>
 					<Pane-28 Type="1" Panes="6" Pane-1="6" Pane-2="7" Pane-3="8" Pane-4="10" Pane-5="4" Pane-6="5" Selected="5" DockingCX="855" DockingCY="120"></Pane-28>
 				</Default>
 			</Dockinglayout>
-			<MainWindow Zoomed="0">
-				<Size cx="1405" cy="1028"/>
-				<Position x="1" y="-10"/>
+			<MainWindow Zoomed="1">
+				<Size cx="1290" cy="1031"/>
+				<Position x="-3" y="-2"/>
 			</MainWindow>
 			<CommandBars>
 				<CommandBars>
@@ -393,10 +396,10 @@
 				<Layout>
 					<DockState Count="6" Version="32" ScreenSize="1680, 1050">
 						<BarInfo0 BarId="1" MRUWidth="32767"></BarInfo0>
-						<BarInfo1 BarId="10066" MRUWidth="32767" PointPos="335, 49" MRUDockPos="335, 47, 974, 73"></BarInfo1>
+						<BarInfo1 BarId="10066" MRUWidth="32767" PointPos="335, 49" MRUDockPos="335, 48, 974, 74"></BarInfo1>
 						<BarInfo2 BarId="9025" MRUWidth="32767" PointPos="372, 23" MRUDockPos="522, 21, 758, 48"></BarInfo2>
 						<BarInfo3 BarId="9017" MRUWidth="32767" PointPos="600, 23" MRUDockPos="600, 18, 761, 45"></BarInfo3>
-						<BarInfo4 BarId="4004" MRUWidth="32767" PointPos="0, 49" MRUDockPos="-2, 49, 331, 75"></BarInfo4>
+						<BarInfo4 BarId="4004" MRUWidth="32767" PointPos="0, 49" MRUDockPos="-4, 49, 329, 75"></BarInfo4>
 						<BarInfo5 BarId="1053" MRUWidth="32767" PointPos="0, 75" MRUDockPos="-1, 32, 432, 58"></BarInfo5>
 					</DockState>
 					<DockBars>
@@ -624,26 +627,38 @@
 			<BuildConfiguration Id="Basic" File="" ToolId="IdeGnuARM" BuildCfgChanged="false">
 				<FileOptions Id="" File=".\source\interrupt.c" ToolId="" FileCfgChanged="false">
 					<General OutputPath=".\objects\" TargetName="">
-						<IncludePath Path=".\source\" Position="0"/>
-						<IncludePath Path=".\source\" Position="1"/>
+						<IncludePath Path=".\source\" Position="0"></IncludePath>
+						<IncludePath Path=".\source\" Position="1"></IncludePath>
 					</General>
-					<Compiler Defines="" Options=""/>
+					<Compiler Defines="" Options=""></Compiler>
 				</FileOptions>
 				<FileOptions Id="" File=".\source\startup.s" ToolId="" FileCfgChanged="false">
 					<General OutputPath=".\objects\" TargetName="">
-						<IncludePath Path=".\source\" Position="0"/>
-						<IncludePath Path=".\source\" Position="1"/>
+						<IncludePath Path=".\source\" Position="0"></IncludePath>
+						<IncludePath Path=".\source\" Position="1"></IncludePath>
 					</General>
-					<Assembler Options=""/>
+					<Assembler Options=""></Assembler>
 				</FileOptions>
 				<General OutputPath=".\objects\" TargetName="Mp3.elf">
-					<IncludePath Path=".\source\" Position="0"/>
-					<IncludePath Path=".\source\" Position="1"/>
-					<IncludePath Path="..\..\A4abgegebenUeberarbeitet\lab4\source\" Position="2"/>
+					<IncludePath Path=".\source\" Position="0"></IncludePath>
+					<IncludePath Path=".\source\" Position="1"></IncludePath>
+					<IncludePath Path="..\..\A4abgegebenUeberarbeitet\lab4\source\" Position="2"></IncludePath>
 				</General>
-				<Assembler Options="-mcpu=arm7tdmi -gdwarf2 -mthumb-interwork  -EL  "/>
-				<Compiler Defines="" Options="-c -gdwarf-2 -MD -O0 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "/>
-				<Linker File=".\Settings\main.ld" Options="--cref -t -static -Llib -lhelix -lm -lc -lgcc -nostartfiles -Map=main.map  " PostBuild=""/>
+				<Assembler Options="-mcpu=arm7tdmi -gdwarf2 -mthumb-interwork  -EL  "></Assembler>
+				<Compiler Defines="" Options="-c -gdwarf-2 -MD -O0 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "></Compiler>
+				<Linker File=".\Settings\main.ld" Options="--cref -t -static -Llib -lhelix -lm -lc -lgcc -nostartfiles -Map=main.map  " PostBuild=""></Linker>
+				<FileOptions Id="" File=".\source\spi.c" ToolId="" FileCfgChanged="false">
+					<General OutputPath="" TargetName=""></General>
+					<Compiler Defines="" Options="-c -gdwarf-2 -MD -O2 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "></Compiler>
+				</FileOptions>
+				<FileOptions Id="" File=".\source\isrRoutine.c" ToolId="" FileCfgChanged="false">
+					<General OutputPath="" TargetName=""></General>
+					<Compiler Defines="" Options="-c -gdwarf-2 -MD -O2 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "></Compiler>
+				</FileOptions>
+				<FileOptions Id="" File=".\source\mp3.c" ToolId="" FileCfgChanged="false">
+					<General OutputPath="" TargetName=""/>
+					<Compiler Defines="" Options="-c -gdwarf-2 -MD -O2 -mapcs-frame -trigraphs -mcpu=arm7tdmi -Wall -mthumb-interwork  -I.\source -I.\libfkt -fsigned-char  -xc  -mlittle-endian  -marm     "/>
+				</FileOptions>
 			</BuildConfiguration>
 		</Application>
 	</LinkerApplications>

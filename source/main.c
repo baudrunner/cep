@@ -3,7 +3,8 @@
 #include "malloc.h"
 #include "mp3.h"
 #include "audioOut.h"
-#include "lpc24xx.h"
+#include "constants.h"
+//#include "lpc24xx.h"
 #define ARM
 
 

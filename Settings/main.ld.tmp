@@ -24,7 +24,7 @@ INPUT 	(
 /* HiTOP will automatically put in here all object files to be linked. */
 /* Leave this unchanged!                                               */
 .\objects\audioOut.o
-.\objects\interrupt.o
+.\objects\isrRoutine.o
 .\objects\main.o
 .\objects\mp3.o
 .\objects\spi.o
