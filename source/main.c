@@ -2,9 +2,11 @@
 #include "ConfigStick.h"
 #include "malloc.h"
 #include "mp3.h"
-#include "outline.h"
+#include "audioOut.h"
 #include "lpc24xx.h"
 #define ARM
+
+
 
 #define CPUFREQ 72000000
 
@@ -31,7 +33,7 @@ int main( void ){
 	outBuf1 = malloc(sizeof(struct buffer));
 	outBuf2 = malloc(sizeof(struct buffer));
 	
-
+	menue();
 
 	outBuf1->sampleCnt = 0;
 	outBuf1->data = outputBuffer1;         
@@ -50,7 +52,7 @@ int main( void ){
 	
 	
 	int i = 0;
-	while(i < 2000){
+	while(i < 89000){
 		//printf("Druchlauf %d\n",i);
 		currentBuffer->sampleCnt = decode(currentBuffer->data);
 		
@@ -88,7 +90,7 @@ int main( void ){
 	
 	//char *data = spiReadBytes(buffersize, 0, SPI_INT);
 		
-	//menue();
+
 
     //initMp3Module(data);
 

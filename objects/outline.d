@@ -24,4 +24,4 @@ objects\outline.o: source\outline.c \
   libfkt/portlcd.h libfkt/fio.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/malloc.h \
   /cygdrive/c/Program\ Files/Hitex/GnuToolPackageArm/bin/../lib/gcc/arm-hitex-elf/4.1.1/../../../../arm-hitex-elf/sys-include/machine/malloc.h \
-  source\/outline.h
+  source\/audioOut.h

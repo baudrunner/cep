@@ -23,9 +23,10 @@ SEARCH_DIR("C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-el
 INPUT 	(
 /* HiTOP will automatically put in here all object files to be linked. */
 /* Leave this unchanged!                                               */
+.\objects\audioOut.o
+.\objects\interrupt.o
 .\objects\main.o
 .\objects\mp3.o
-.\objects\outline.o
 .\objects\spi.o
 .\objects\startup.o
 .\objects\ConfigStick.o

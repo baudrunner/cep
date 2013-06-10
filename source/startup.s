@@ -122,7 +122,7 @@ start:
 
                 RegWrite PCLKSEL0, ( 0 | ( 1<<6 ) )
                 RegWrite PCLKSEL1, ( 0 | ( 1<<16 ) )
-                setup_MAM      __MAM_partly_enabled, 3
+                setup_MAM      __MAM_fully_enabled, 3
                 # Clock Source: Main Oszillator 4.000 MHz, use Port 0 and Port 1 as Fast IO.
                 RegWrite    SCS, 0x20
                 # Wait for external oscillator ready

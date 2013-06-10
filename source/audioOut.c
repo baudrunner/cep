@@ -5,7 +5,8 @@
 #include "portlcd.h"
 #include "fio.h"
 #include "malloc.h"
-#include "outline.h"
+#include "interrupt.h"
+#include "audioOut.h"
 
 
 char stringBufferForLcdPrint[33]; //16 stellen pro LCD-Zeile + term. null
@@ -30,21 +31,19 @@ struct buffer *currentIsrBuffer;
 int tableIdx = 0;
 int buffIdx = 0;
 
-
-void __attribute__ ((interrupt("IRQ"))) isr_timer(void){
-
-    TIMER2_IR = 0x01;   // INT-Acknowledge resp. switch off MR0-IRQ ( MatchRegister0 InterruptReQuest ) -> UM Chapter 6-6.1, Table 547  
-
+void isrRoutine(){
 	FIO1PIN = ( FIO1PIN ^ (1<<LED3BIT) ); //UNDERFLOW_LED3 TOGGLE
 
 	if(currentIsrBuffer->sampleCnt <= 0){
  	   FIO1PIN = ( FIO1PIN | (1<<LED2BIT) ); //UNDERFLOW_LED2 ON
     }else{   
  	    FIO1PIN = ( FIO1PIN & ~(1<<LED2BIT) ); //UNDERFLOW_LED2 OFF
-		PWM1_MR1 = ((uint16_t)currentIsrBuffer->data[isrBufferIdx] / 40);
- 		PWM1_LER = (1<<0) | (1<<1) |              // Latch Enable
-               (1<<2) | (1<<3);	
-		//DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
+		//PWM1_MR1 = ((uint16_t)currentIsrBuffer->data[isrBufferIdx] / 40);
+ 		PWM1_MR1 = ((((int)currentIsrBuffer->data[isrBufferIdx] + (1 << 15) )  * 1633) >> 16);
+				
+		PWM1_LER = (1<<0) | (1<<1) |              // Latch Enable
+                   (1<<2) | (1<<3);	
+		DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
 		count++;
  	    isrBufferIdx += 2;
  		printCount++;
@@ -59,10 +58,7 @@ void __attribute__ ((interrupt("IRQ"))) isr_timer(void){
  		    isrBufferIdx = 0; // wieder am Anfang des neuen Buffers anfangen zu lesen
 		}	
     }
-
-    VICVectAddr = 0;       // mark end of ISR  resp. trigger update of VIC priority logic -> UM Chapter 3-3.11, Table 113 
 }
-
 
 void pwmInit(){
 
@@ -155,8 +151,6 @@ void dacOut(){
 }
 */
 
-
-
 void initTimer(){
     PCONP    |= (1<<22); // enable timer
 	PCLKSEL1 |= (1<<12); // set clock to cclk (48 MHz)
@@ -174,4 +168,5 @@ void initTimer(){
 
     timerRunning = 1;	
 }
+
 /************************************** EOF *********************************/

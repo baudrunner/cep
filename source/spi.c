@@ -387,9 +387,10 @@ void readSpecs(){
 
 void menue(void){
 
+	int running = 1;
 	char number;
 	printf("\nEnter druecken um zu starten");
-	while(1){
+	while(running){
 		number = getc(stdin);
 		switch(number - '0'){
 			case 0: {
@@ -503,7 +504,13 @@ void menue(void){
 						}
 						
 						break;
-			}			
+			}	
+			
+			case 9: {
+						running = 0;
+						break;
+			}
+					
 			default :{	
 						printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Ende>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><\n\n"); 		
 				 		printf("                 ##############Menue##############				     \n");
@@ -511,6 +518,7 @@ void menue(void){
 						printf("2 = Kopieren von Extern auf Intern || 3 = 'A' Schreiben auf Internen \n");
 						printf("4 = Internen Baustein loeschen     || 5 = Speicherung Verifizieren   \n");
 						printf("7 = Baustein Info von Extern       || 8 = Lesen vom externen Speicher\n");
+						printf("9 = Exit						                                     \n");
 						printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Beginn<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 						break;
 			}

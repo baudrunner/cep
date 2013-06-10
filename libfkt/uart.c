@@ -97,16 +97,40 @@ void uart0Init(uint16_t baud, uint8_t mode, uint8_t fmode)
   UART0_LCR = ULCR_DLAB_ENABLE;             // select divisor latches 
   //UART0_DLL = (uint8_t)baud;                // set for baud low byte
   //UART0_DLM = (uint8_t)(baud >> 8);         // set for baud high byte
-#if (UART0_BAUDRATE == 115200)
-   UART0_DLL = (unsigned int)17;
-   UART0_DLM = (unsigned int)0;
-   UART0_FDR = (unsigned int)(8 | (15 << 4) );
+	#define CPUFREQ 72
+	#if (CPUFREQ==72)
+	#if (UART0_BAUDRATE == 460800)
+	UART0_DLL = (unsigned int)8;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(2 | (9 << 4) );
+	#endif
+	#if (UART0_BAUDRATE == 115200)
+	UART0_DLL = (unsigned int)23;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(7 | (10 << 4) );
+	#endif
+	#if (UART0_BAUDRATE == 19200)
+	UART0_DLL = (unsigned int)125;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(7 | (8 << 4) );
+	#endif
+	#else
+	#if (UART0_BAUDRATE == 460800)
+	UART0_DLL = (unsigned int)6;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(1 | (12 << 4) );
+	#endif
+	#if (UART0_BAUDRATE == 115200)
+	UART0_DLL = (unsigned int)17;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(8 | (15 << 4) );
+	#endif
+	#if (UART0_BAUDRATE == 19200)
+	UART0_DLL = (unsigned int)125;
+	UART0_DLM = (unsigned int)0;
+	UART0_FDR = (unsigned int)(1 | (4 << 4) );
+	#endif
 #endif
-#if (UART0_BAUDRATE == 19200)
-   UART0_DLL = (unsigned int)125;
-   UART0_DLM = (unsigned int)0;
-   UART0_FDR = (unsigned int)(1 | (4 << 4) );
-#endif   
   //-- disable access to divisor latch regs (enable access to xmit/rcv fifos
   //-- and int enable regs)
   UART0_LCR = USART_DIVISOR_LATCH_DISABLED;
