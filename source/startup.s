@@ -130,7 +130,7 @@ start:
                 # Connect to oscillator
                 RegWrite    CLKSRCSEL, 1
 
-                RegWrite	CCLKCFG, 5
+                RegWrite	CCLKCFG, 3
                 RegWrite	USBCLKCFG, 5
                 setup_PLL	71, 1
 

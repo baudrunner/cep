@@ -12,11 +12,13 @@
 
 #define OUTSIZE (MAX_NGRAN*MAX_NCHAN*MAX_NSAMP)
 #define NUMOFCHAN 2
+#define READBUF_SIZE (MAINBUF_SIZE)
 
-int initMp3Module(void);
-void fillBuffer(void);
+int initMp3Module();
+int decode(int16_t *outBuf);
+int fillBuffer(unsigned char *inputBuffer, unsigned char *inBufPtr, int bufSize, int bytesLeft, int readAddr);
 void mp3Cleanup(void);
-void decodeMp3(void);
+
 
 
 
