@@ -8,23 +8,25 @@
 			<List Id="" BkColor="16777215" TextColor="0" DisableColSizing="0">
 				<Header Bold="1"/>
 				<Column Id="0" Order="0" Title="State" Width="24" Visible="1" Alignment="LEFT"/>
-				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1722048" Alignment="LEFT"/>
-				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324698" Alignment="LEFT"/>
-				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953838" Alignment="LEFT"/>
+				<Column Id="11" Order="1" Title="Address" Visible="1" RelWidth="0.1722058" Alignment="LEFT"/>
+				<Column Id="12" Order="2" Title="OpCode" Visible="1" RelWidth="0.1324708" Alignment="LEFT"/>
+				<Column Id="13" Order="3" Title="Instruction" Visible="1" RelWidth="0.6953848" Alignment="LEFT"/>
 			</List>
 			<Tabs Count="0"/>
 		</Window>
 		<Window Id="Source">
-			<Tabs Count="9" Active="0">
-				<Tab Pos="0" Module="main.c" TopLine="5" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
-				<Tab Pos="1" Module="spi.h" TopLine="1" FilePath="$(PROJECTDIR)\source\spi.h" Application=""/>
-				<Tab Pos="2" Module="spi.c" TopLine="126" FilePath="$(PROJECTDIR)\source\spi.c" Application=""/>
+			<Tabs Count="11" Active="0">
+				<Tab Pos="0" Module="main.c" TopLine="21" FilePath="$(PROJECTDIR)\source\main.c" Application=""/>
+				<Tab Pos="1" Module="spi.h" TopLine="41" FilePath="$(PROJECTDIR)\source\spi.h" Application=""/>
+				<Tab Pos="2" Module="spi.c" TopLine="74" FilePath="$(PROJECTDIR)\source\spi.c" Application=""/>
 				<Tab Pos="3" Module="mp3.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3.h" Application=""/>
-				<Tab Pos="4" Module="mp3" TopLine="67" FilePath="$(PROJECTDIR)\source\mp3.c" Application="Mp3"/>
-				<Tab Pos="5" Module="outline.c" TopLine="69" FilePath="$(PROJECTDIR)\source\outline.c" Application=""/>
+				<Tab Pos="4" Module="mp3" TopLine="65" FilePath="$(PROJECTDIR)\source\mp3.c" Application="Mp3"/>
+				<Tab Pos="5" Module="outline.c" TopLine="45" FilePath="$(PROJECTDIR)\source\outline.c" Application=""/>
 				<Tab Pos="6" Module="outline.h" TopLine="1" FilePath="$(PROJECTDIR)\source\outline.h" Application=""/>
 				<Tab Pos="7" Module="startup" TopLine="76" FilePath="$(PROJECTDIR)\source\startup.s" Application="Mp3"/>
-				<Tab Pos="8" Module="mp3dec.h" TopLine="1" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
+				<Tab Pos="8" Module="mp3dec.h" TopLine="93" FilePath="$(PROJECTDIR)\source\mp3dec.h" Application=""/>
+				<Tab Pos="9" Module="uart" TopLine="341" FilePath="$(PROJECTDIR)\libfkt\uart.c" Application="Mp3"/>
+				<Tab Pos="10" Module="interrupt" TopLine="88" FilePath="$(PROJECTDIR)\libfkt\interrupt.c" Application="Mp3"/>
 			</Tabs>
 			<UpdateOnRunning Update="0"/>
 			<WindowState State="Maximized"></WindowState>
@@ -37,7 +39,7 @@
 				<Position x="-4" y="-23"></Position>
 			</Rectangle>
 			<Rectangle State="Maximized">
-				<Size cx="1438" cy="653"></Size>
+				<Size cx="1231" cy="652"></Size>
 				<Position x="-4" y="-30"></Position>
 			</Rectangle>
 		</Window>
@@ -288,7 +290,7 @@
 						<Position x="-4" y="-23"></Position>
 					</Rectangle>
 					<Rectangle State="Maximized">
-						<Size cx="1438" cy="653"></Size>
+						<Size cx="1231" cy="652"></Size>
 						<Position x="-4" y="-30"></Position>
 					</Rectangle>
 				</Window>
@@ -312,7 +314,7 @@
 				<Default>
 					<Summary Panes="28" Client="24" TopContainer="17"></Summary>
 					<Pane-1 ID="40364" Type="0" Title="Workspace - ModuleView\nModuleView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-1>
-					<Pane-2 ID="40365" Tag="106967384" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
+					<Pane-2 ID="40365" Tag="106868792" Type="0" Title="Workspace - FileView\nFileView" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-2>
 					<Pane-3 ID="40100" Tag="61470472" Type="0" Title="Register" DockingCX="200" DockingCY="120" LastHolder="22" DockingHolder="22"></Pane-3>
 					<Pane-4 ID="40110" Type="0" Title="Callstack" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-4>
 					<Pane-5 ID="10001" Type="0" Title="Output" DockingCX="200" DockingCY="120" LastHolder="28" DockingHolder="28" FloatingHolder="16"></Pane-5>
@@ -329,11 +331,11 @@
 					<Pane-16 Type="1" Panes="0" DockingCX="200" DockingCY="120"></Pane-16>
 					<Pane-17 Type="2" Panes="1" Pane-1="18" DockingCY="872"></Pane-17>
 					<Pane-18 Type="2" Panes="2" Pane-1="19" Pane-2="27" DockingCX="791" DockingCY="882"></Pane-18>
-					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="626"></Pane-19>
+					<Pane-19 Type="2" Horiz="1" Panes="2" Pane-1="20" Pane-2="25" DockingCY="625"></Pane-19>
 					<Pane-20 Type="2" Panes="1" Pane-1="21" DockingCX="1167"></Pane-20>
-					<Pane-21 Type="2" Horiz="1" Panes="2" Pane-1="22" Pane-2="23" DockingCX="1400" DockingCY="342"></Pane-21>
-					<Pane-22 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="246" DockingCY="120"></Pane-22>
-					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="1430"></Pane-23>
+					<Pane-21 Type="2" Horiz="1" Panes="2" Pane-1="22" Pane-2="23" DockingCX="972" DockingCY="342"></Pane-21>
+					<Pane-22 Type="1" Panes="3" Pane-1="1" Pane-2="2" Pane-3="3" Selected="2" DockingCX="169" DockingCY="120"></Pane-22>
+					<Pane-23 Type="2" Panes="1" Pane-1="24" DockingCX="1223"></Pane-23>
 					<Pane-24 Type="4"></Pane-24>
 					<Pane-25 Type="2" Panes="1" Pane-1="26" DockingCX="229" DockingCY="120"></Pane-25>
 					<Pane-26 Type="1" Panes="0" DockingCX="287" DockingCY="120"></Pane-26>
@@ -341,8 +343,8 @@
 					<Pane-28 Type="1" Panes="6" Pane-1="6" Pane-2="7" Pane-3="8" Pane-4="10" Pane-5="4" Pane-6="5" Selected="5" DockingCX="855" DockingCY="120"></Pane-28>
 				</Default>
 			</Dockinglayout>
-			<MainWindow Zoomed="1">
-				<Size cx="1219" cy="1027"/>
+			<MainWindow Zoomed="0">
+				<Size cx="1405" cy="1028"/>
 				<Position x="1" y="-10"/>
 			</MainWindow>
 			<CommandBars>

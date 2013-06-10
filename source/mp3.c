@@ -16,9 +16,9 @@ int initMp3Module(void){
 	printf("inBuf= %p\ninputBuffer= %p\n",inBuf,inputBuffer);		
 
 	if(mp3Dec == NULL){
-		printf("ERROR Initialisierung des mp3 Decoder fehlgeschlagen!\n");
+		printf("ERROR Initialisierung des mp3 Decoder fehlgeschlagen! mp3Dec= %d\n",mp3Dec);
 	}else{
-		printf("mp3 Decoder initialisiert!\n");
+		printf("mp3 Decoder initialisiert! mp3Dec= %d\n",mp3Dec);
 	}
 	
 	//int nextSyncWord = MP3FindSyncWord((unsigned char*)inBuf, MAINBUF_SIZE); 
