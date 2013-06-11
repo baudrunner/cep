@@ -43,7 +43,7 @@ void pwmInit(){
     PWM1_PR =  0;               // Prescaler, PWM-Takt= 1 Hz
     PWM1_MCR = (1<<0) | (1<<1);               // Interrupt on PWMMR0, Reset on PWMMR0
     PWM1_PCR = //(1<<2) | (1<<3) |            // PWM1.2 double edge, PWM1.3 double edge,
-               (1<<9);// | (1<<10) | (1<<11); // PWM1.1 PWM1.2 PWM1.3 enabled
+               (1<<9) | (1<<10); // PWM1.1 PWM1.2 PWM1.3 enabled
     PWM1_MR0 = 1633;                             // PWM-Period
     PWM1_MR1 = 816;                             // PWM-Match 1
     PWM1_LER = (1<<0) | (1<<1) |              // Latch Enable
