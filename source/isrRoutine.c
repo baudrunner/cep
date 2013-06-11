@@ -8,16 +8,23 @@ void isrRoutine(void){
     }else{   
  	    FIO1PIN = ( FIO1PIN & ~(1<<LED0BIT) ); //UNDERFLOW_LED0 OFF
 		//PWM1_MR1 = ((uint16_t)currentIsrBuffer->data[isrBufferIdx] / 40);  // viel zu langsam
- 		
-		DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
+
 		PWM1_MR1 = ((((int)currentIsrBuffer->data[isrBufferIdx] + (1 << 15) )  * 1633) >> 16);
 
- 	    isrBufferIdx++;
+
+ 		if(dacChannel == DAC_CHANNEL_RIGHT){
+			DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
+ 			isrBufferIdx++;	
+		}else{
+ 			isrBufferIdx++;	
+			DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
+		}
+		
+ 	    
 		PWM1_MR2 = ((((int)currentIsrBuffer->data[isrBufferIdx] + (1 << 15) )  * 1633) >> 16);
 		PWM1_LER = (1<<0) | (1<<1) |              // Latch Enable
                    (1<<2) | (1<<3);
 		isrBufferIdx++;
-
 
 		if(currentIsrBuffer->sampleCnt <= isrBufferIdx){ 
 			currentIsrBuffer->sampleCnt = 0;

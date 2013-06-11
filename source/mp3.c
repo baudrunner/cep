@@ -37,18 +37,15 @@ int initMp3Module(int startAddr){
 
 int decode(int16_t *outBuf){
 
-	/* somewhat arbitrary trigger to refill buffer - should always be enough for a full frame */
 	if (bytesLeft < MAINBUF_SIZE && !eofReached) {
 		nRead =fillBuffer(inputBuffer, inBufPtr, READBUF_SIZE, bytesLeft, spiDataPosition);
 		spiDataPosition += nRead;
-		//nRead = FillReadBuffer(readBuf, readPtr, READBUF_SIZE, bytesLeft, infile);
 		bytesLeft += nRead;
 		inBufPtr = inputBuffer;
 		if (nRead == 0)
 			eofReached = 1;
 	}
 
-	/* find start of next MP3 frame - assume EOF if no sync found */
 	offset = MP3FindSyncWord(inBufPtr, bytesLeft);
 	if (offset < 0) {
 		outOfData = 1;
@@ -56,20 +53,15 @@ int decode(int16_t *outBuf){
 	inBufPtr += offset;
 	bytesLeft -= offset;
 
-
-	/* decode one MP3 frame - if offset < 0 then bytesLeft was less than a full frame */
-		err = MP3Decode(mp3Dec, &inBufPtr, &bytesLeft, outBuf, 0);
-		//printf("mp3DecResu= %d\n",err);	
-		nFrames++;
+	err = MP3Decode(mp3Dec, &inBufPtr, &bytesLeft, outBuf, 0);
+	nFrames++;
 		
 	if (err) {
-		/* error occurred */
 		switch (err) {
 		case ERR_MP3_INDATA_UNDERFLOW:
 			outOfData = 1;
 			return ERR_MP3_INDATA_UNDERFLOW;
 		case ERR_MP3_MAINDATA_UNDERFLOW:
-			/* do nothing - next call to decode will provide more mainData */
 			return ERR_MP3_MAINDATA_UNDERFLOW;
 		case ERR_MP3_FREE_BITRATE_SYNC:
 		default:
@@ -77,7 +69,7 @@ int decode(int16_t *outBuf){
 			return ERR_MP3_FREE_BITRATE_SYNC;
 		}
 	} else {
-		/* no error */
+
 		MP3GetLastFrameInfo(mp3Dec, &mp3FrameInfo);
 			
 		/*
@@ -109,7 +101,6 @@ int fillBuffer(unsigned char *inputBuffer, unsigned char *inBufPtr, int bufSize,
 
 void mp3Cleanup(){
 
-	
 	printf("mp3Cleanup() leere inputBuffer...\n");
 	memset(inputBuffer, 0, READBUF_SIZE);
 	printf("MP3FreeDecoder()...\n");	

@@ -17,7 +17,7 @@ struct buffer *outBuf1;
 struct buffer *outBuf2;
 struct buffer *currentBuffer;
 void restart(int startAddr);
-int dacChannel = DAC_CHANNEL_LEFT;
+int dacChannel;
 
 int main( void ){
 
@@ -46,13 +46,13 @@ int main( void ){
 	
 
 	int fio1PinState;
-
+	dacChannel = DAC_CHANNEL_LEFT;
 	
-	int i = 0;
-	while(i < 89000){
+	int running = 1;
+	while(running){
 		
  		fio1PinState = FIO1PIN;
-		
+ 		
 		if( (fio1PinState & S0_BIT) == 0){
 			dacChannel = DAC_CHANNEL_LEFT;
 			restart(0x000000);
@@ -66,22 +66,21 @@ int main( void ){
 		}else if( (fio1PinState & S3_BIT) == 0){
 			dacChannel = DAC_CHANNEL_RIGHT;
 			restart(0x200000);	
-		}
-
+		}	
+		
 		currentBuffer->sampleCnt = decode(currentBuffer->data);
-		if( currentBuffer->sampleCnt <= 0){ break; } //mp3 scheint zu Ende
-		//printf("%d Bytes dekodiert\n",currentBuffer->sampleCnt);
+		
+		if( currentBuffer->sampleCnt <= 0){ running = 0; } //mp3 scheint zu Ende
+		
 		if(currentBuffer == outBuf1){	// Wenn Buffergröße erreicht ist, dann aktuellen Buffer aendern
 			currentBuffer = outBuf2;
 		}else{
 			currentBuffer = outBuf1;
 		}
 
- 		FIO1PIN = ( fio1PinState | (1<<LED1BIT)) ; //WAITING_LED1 ON	
- 		
+ 	 	FIO1PIN = ( fio1PinState | (1<<LED1BIT)) ; //WAITING_LED1 ON	
 		while( currentBuffer->sampleCnt > 0){};	
- 		FIO1PIN = ( fio1PinState & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
-
+ 		FIO1PIN = ( fio1PinState & ~(1<<LED1BIT) ); //WAITING_LED1 OFF		
 
 		//i++;
 	}
@@ -92,11 +91,19 @@ int main( void ){
 
 void restart(int startAddr){
 	printf("cleanup(): ### leere output-Buffer...\n");
-    memset(outputBuffer1, 0, OUTSIZE);
-    memset(outputBuffer2, 0, OUTSIZE); 
-
+    
 	outBuf1->sampleCnt = 0;	
 	outBuf2->sampleCnt = 0;
+
+	memset(outputBuffer1, 0, OUTSIZE);
+    memset(outputBuffer2, 0, OUTSIZE); 
+
 	mp3Cleanup();
 	initMp3Module(startAddr);
+
+	pwmInit();
+	dacInit(outBuf1, outBuf2);
+	initTimer();		
+
+	currentBuffer = outBuf1;
 }
