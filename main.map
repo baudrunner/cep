@@ -233,7 +233,7 @@ LOAD .\objects\uartISR.o
                 0x40010000                PROVIDE (_top_stack_, 0x40010000)
                 0x40010000                PROVIDE (_end_of_heap_, 0x40010000)
 
-.text           0x00000000    0x16100
+.text           0x00000000    0x16170
                 0x00000000                __code_start__ = .
  .\objects\startup.o(.text)
  .text          0x00000000      0x214 .\objects\startup.o
@@ -242,723 +242,723 @@ LOAD .\objects\uartISR.o
                 0x0000004c                start
                 0x0000004c                Start_init_s
  *.o(.text)
- .text          0x00000214      0x300 .\objects\audioOut.o
+ .text          0x00000214      0x31c .\objects\audioOut.o
                 0x00000214                isr_timer
                 0x00000254                pwmInit
-                0x000003f8                initTimer
-                0x00000360                dacInit
- .text          0x00000514      0x134 .\objects\isrRoutine.o
-                0x00000514                isrRoutine
- .text          0x00000648      0x1ec .\objects\main.o
-                0x00000648                main
- .text          0x00000834      0x2a8 .\objects\mp3.o
-                0x000008ac                decode
-                0x00000a44                initMp3Module
-                0x00000868                fillBuffer
-                0x00000834                mp3Cleanup
- .text          0x00000adc      0xee0 .\objects\spi.o
-                0x00000d9c                spiFlashMemGlobalUnprotect
-                0x00000d10                spiFlashMemSetWriteEnable
-                0x00001290                eraseChip
-                0x00000c40                spiFlashMemWaitReady
-                0x0000135c                readSpecs
-                0x00000f94                spiFlashMemRead
-                0x000014c0                testSpiMem
-                0x00001154                spiFlashMemErase
-                0x000015a0                menue
-                0x00000b94                spiFlashMemReadStatusRegister
-                0x000010cc                spiReadBytes
-                0x00000e48                spiFlashMemWrite
-                0x00000adc                sspInit
- .text          0x000019bc      0x818 .\objects\ConfigStick.o
-                0x00002060                Check_Hardware
-                0x00001f68                ADC_get_channel
-                0x000019bc                Peripheral_Clock_Configuration
-                0x00001a1c                Power_Configuration
-                0x00002144                BaseStickConfig
-                0x00001f3c                WDT_Configuration
-                0x00001ac4                GPIO_Configuration
- .text          0x000021d4      0x1f4 .\objects\armVIC.o
-                0x00002268                restoreIRQ
-                0x00002388                enableFIQ
-                0x000022f8                disableFIQ
-                0x000022b8                enableIRQ
-                0x00002338                restoreFIQ
-                0x000021d4                disableIRQ
- .text          0x000023c8      0x144 .\objects\delay.o
-                0x000023c8                delay
-                0x000024a0                init_delay
- .text          0x0000250c      0x1b8 .\objects\fio.o
-                0x0000250c                GPIOInit
- .text          0x000026c4       0xd8 .\objects\interrupt.o
-                0x000026c4                SWI_Handler
-                0x00002768                Undef_Handler
-                0x00002754                DAbt_Handler
-                0x0000277c                FIQ_Handler
-                0x00002740                PAbt_Handler
- .text          0x0000279c      0x6a8 .\objects\portlcd.o
-                0x00002880                lcd_write
-                0x00002a90                LCD_init
-                0x00002b74                LCD_load
-                0x0000279c                lcd_delay
-                0x000029d8                lcd_wait_busy
-                0x00002a10                lcd_write_cmd
-                0x00002d40                LCD_puts
-                0x00002d98                LCD_bargraph
-                0x000027d4                lcd_write_4bit
-                0x00002cc0                LCD_on
-                0x00002ce0                LCD_putc
-                0x00002a50                lcd_write_data
-                0x00002bec                LCD_gotoxy
-                0x000028b8                lcd_read_stat
-                0x00002ca0                LCD_cur_off
-                0x00002c74                LCD_cls
- .text          0x00002e44      0x27c .\objects\syscalls_lpc.o
-                0x00003018                _sbrk_r
-                0x00002f04                _read_r
-                0x00002e44                _write_r
- .text          0x000030c0      0x180 .\objects\target_info.o
-                0x0000319c                GetPclk
-                0x000030c0                GetCclk
- .text          0x00003240      0xd18 .\objects\uart.o
-                0x00003c04                uart2Space
-                0x00003cf8                uart2Write
-                0x00003dbc                uart2TxEmpty
-                0x00003674                uart0Write
-                0x00003420                uart0Putch
-                0x00003240                uart0Init
-                0x00003778                uart0TxFlush
-                0x00003dfc                uart2TxFlush
-                0x00003604                uart0Puts
-                0x00003818                uart0Getch
-                0x00003580                uart0Space
-                0x000038d4                uart2Init
-                0x00003738                uart0TxEmpty
-                0x00003e9c                uart2Getch
-                0x00003aa4                uart2Putch
-                0x00003c88                uart2Puts
- .text          0x00003f58      0x508 .\objects\uartISR.o
-                0x000041c8                uart2ISR
-                0x00003f58                uart0ISR
- .text          0x00004460      0x6a4 lib/libhelix.a(mp3dec.o)
-                0x00004460                MP3FindSyncWord
-                0x00004ae8                MP3InitDecoder
-                0x00004ac8                MP3FreeDecoder
-                0x000045a8                MP3GetNextFrameInfo
-                0x000044c0                MP3GetLastFrameInfo
-                0x0000460c                MP3Decode
- .text          0x00004b04        0x0 lib/libhelix.a(mp3tabs.o)
- .text          0x00004b04      0x91c lib/libhelix.a(scalfact.o)
-                0x00004b04                xmp3fixpt_UnpackScaleFactors
- .text          0x00005420      0x19c lib/libhelix.a(subband.o)
-                0x00005420                xmp3fixpt_Subband
- .text          0x000055bc        0x0 lib/libhelix.a(trigtabs_fixpt.o)
- .text          0x000055bc      0x8b8 lib/libhelix.a(asmpoly_gcc.o)
-                0x00005b28                xmp3fixpt_PolyphaseMono
-                0x000055bc                xmp3fixpt_PolyphaseStereo
- .text          0x00005e74      0x7fc lib/libhelix.a(bitstream.o)
-                0x000062b4                xmp3fixpt_UnpackSideInfo
-                0x00005e8c                xmp3fixpt_GetBits
-                0x00005fc0                xmp3fixpt_CalcBitsUsed
-                0x00005fd8                xmp3fixpt_CheckPadBit
-                0x00006004                xmp3fixpt_UnpackFrameHeader
-                0x00005e74                xmp3fixpt_SetBitstreamPointer
- .text          0x00006670      0x224 lib/libhelix.a(buffers.o)
-                0x00006730                xmp3fixpt_AllocateBuffers
-                0x00006694                xmp3fixpt_FreeBuffers
- .text          0x00006894      0xb74 lib/libhelix.a(dct32.o)
-                0x00006894                xmp3fixpt_FDCT32
- .text          0x00007408      0x40c lib/libhelix.a(dequant.o)
-                0x00007408                xmp3fixpt_Dequantize
- .text          0x00007814      0x62c lib/libhelix.a(dqchan.o)
-                0x00007a50                xmp3fixpt_DequantChannel
- .text          0x00007e40      0x9c0 lib/libhelix.a(huffman.o)
-                0x00007e40                xmp3fixpt_DecodeHuffman
- .text          0x00008800        0x0 lib/libhelix.a(hufftabs.o)
- .text          0x00008800     0x176c lib/libhelix.a(imdct.o)
-                0x00008b74                xmp3fixpt_IMDCT
- .text          0x00009f6c      0x9bc lib/libhelix.a(stproc.o)
-                0x0000a458                xmp3fixpt_IntensityProcMPEG1
-                0x00009f6c                xmp3fixpt_MidSideProc
-                0x0000a000                xmp3fixpt_IntensityProcMPEG2
- .text          0x0000a928        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
- .text          0x0000a928       0x40 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
-                0x0000a948                malloc
-                0x0000a928                free
- .text          0x0000a968      0x688 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
-                0x0000a968                _malloc_r
- .text          0x0000aff0       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
-                0x0000aff0                memcmp
- .text          0x0000b02c       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
-                0x0000b02c                memcpy
- .text          0x0000b04c       0x54 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
-                0x0000b04c                memmove
- .text          0x0000b0a0       0x1c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
-                0x0000b0a0                memset
- .text          0x0000b0bc        0x8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
-                0x0000b0c0                __malloc_unlock
-                0x0000b0bc                __malloc_lock
- .text          0x0000b0c4       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
-                0x0000b0c4                printf
-                0x0000b104                _printf_r
- .text          0x0000b138       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
-                0x0000b138                putchar
-                0x0000b160                _putchar_r
- .text          0x0000b174       0x88 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
-                0x0000b174                _puts_r
-                0x0000b1e8                puts
- .text          0x0000b1fc       0x4c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
-                0x0000b234                __srget
-                0x0000b1fc                __srget_r
- .text          0x0000b248       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
-                0x0000b248                _scanf_r
-                0x0000b27c                scanf
- .text          0x0000b2bc       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
-                0x0000b2bc                strlen
- .text          0x0000b2dc     0x1da0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
-                0x0000b318                _vfprintf_r
-                0x0000d050                vfprintf
- .text          0x0000d07c     0x1114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
-                0x0000e0d8                __svfscanf
-                0x0000e104                _vfscanf_r
-                0x0000e140                vfscanf
-                0x0000d07c                __svfscanf_r
- .text          0x0000e190       0x78 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
-                0x0000e190                _wcrtomb_r
-                0x0000e1dc                wcrtomb
- .text          0x0000e208      0x14c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
-                0x0000e208                _wcsrtombs_r
-                0x0000e314                wcsrtombs
- .text          0x0000e354      0x424 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
-                0x0000e354                _wctomb_r
- .text          0x0000e778       0xf8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
-                0x0000e778                __swsetup
- .text          0x0000e870        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
- .text          0x0000e870     0x14fc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
-                0x0000ea4c                _dtoa_r
- .text          0x0000fd6c      0x19c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
-                0x0000fd6c                fflush
- .text          0x0000ff08      0x284 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
-                0x0000ff64                __sinit
-                0x0001002c                __sfmoreglue
-                0x0001001c                _cleanup
-                0x00010004                _cleanup_r
-                0x000100a0                __fp_lock_all
-                0x0000ffe4                __sfp_lock_acquire
-                0x000100c4                __sfp
-                0x0000fff0                __sinit_lock_release
-                0x0001007c                __fp_unlock_all
-                0x0000ffe8                __sfp_lock_release
-                0x0000ffec                __sinit_lock_acquire
- .text          0x0001018c      0x120 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
-                0x0001026c                fread
-                0x0001018c                _fread_r
- .text          0x000102ac      0x35c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
-                0x000103a8                _free_r
-                0x000102ac                _malloc_trim_r
- .text          0x00010608      0x3fc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
-                0x00010608                __sfvwrite_r
- .text          0x00010a04       0xf4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
-                0x00010a80                _fwalk
-                0x00010a04                _fwalk_reent
- .text          0x00010af8       0x24 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
-                0x00010af8                iswspace
- .text          0x00010b1c       0xa8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
-                0x00010b38                _setlocale_r
-                0x00010b1c                __locale_charset
-                0x00010b2c                _localeconv_r
-                0x00010b9c                setlocale
-                0x00010bb8                localeconv
- .text          0x00010bc4      0x154 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
-                0x00010bc4                __smakebuf
- .text          0x00010d18       0x98 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
-                0x00010d70                mbrtowc
-                0x00010d18                _mbrtowc_r
- .text          0x00010db0       0x50 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
-                0x00010db0                _mbtowc_r
- .text          0x00010e00       0x28 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
-                0x00010e00                memchr
- .text          0x00010e28      0xc00 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
-                0x0001111c                _mprec_log10
-                0x000111d0                __any_on
-                0x00011238                _Balloc
-                0x000110a0                __ratio
-                0x0001177c                __i2b
-                0x00010fec                __b2d
-                0x00011944                __s2b
-                0x00010f2c                __mcmp
-                0x00010e44                __hi0bits
-                0x00011868                __pow5mult
-                0x00011504                __lshift
-                0x000115e4                __multiply
-                0x000112cc                __d2b
-                0x00011188                __copybits
-                0x00010f8c                __ulp
-                0x000113e0                __mdiff
-                0x00010e9c                __lo0bits
-                0x000117a0                __multadd
-                0x00010e28                _Bfree
- .text          0x00011a28       0xb4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
-                0x00011a28                _putc_r
-                0x00011ac0                putc
- .text          0x00011adc      0x4d4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
-                0x00011adc                _realloc_r
- .text          0x00011fb0      0x1b8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
-                0x00011fdc                __srefill_r
- .text          0x00012168       0x2c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
-                0x00012168                __isinfd
- .text          0x00012194       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
-                0x00012194                __isnand
- .text          0x000121b4       0xcc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
-                0x000121b4                __sccl
- .text          0x00012280        0xc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
-                0x00012280                nanf
- .text          0x0001228c       0xdc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
-                0x00012300                _sprintf_r
-                0x0001228c                sprintf
- .text          0x00012368      0x110 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
-                0x00012388                __sseek
-                0x00012430                __sread
-                0x00012368                __sclose
-                0x000123d0                __swrite
- .text          0x00012478       0x30 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
-                0x00012478                strcmp
- .text          0x000124a8     0x12d0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
-                0x000124f4                _strtod_r
-                0x0001375c                strtod
-                0x00013708                strtof
- .text          0x00013778      0x1c4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
-                0x00013910                strtol
-                0x00013778                _strtol_r
- .text          0x0001393c      0x1a4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
-                0x00013ab4                strtoul
-                0x0001393c                _strtoul_r
- .text          0x00013ae0      0x5e4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
-                0x00013ba4                _getpid
-                0x00013b10                initialise_monitor_handles
-                0x00013c18                isatty
-                0x00013d94                _fstat
-                0x00013d74                _open
-                0x00013c68                _sbrk
-                0x00013bbc                _raise
-                0x00013bec                _times
-                0x00013e6c                _stat
-                0x00014014                _lseek
-                0x00013bac                _link
-                0x00013ed0                _swiwrite
-                0x00013c28                _rename
-                0x00013f70                _swilseek
-                0x00013e38                _swiclose
-                0x00013cd8                _swiopen
-                0x00013bb4                _unlink
-                0x00013efc                _write
-                0x00013b9c                _kill
-                0x00013bc0                _gettimeofday
-                0x00014050                _read
-                0x000140bc                _exit
-                0x00013c44                _system
-                0x00014024                _swiread
-                0x00013ec0                _close
- .text          0x000140c4      0x228 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
-                0x000142d0                ungetc
-                0x000140c4                __submore
-                0x00014178                _ungetc_r
- .text          0x000142ec      0x114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
-                0x000142ec                __swbuf_r
-                0x000143e4                __swbuf
- .text          0x00014400       0x9c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
-                0x00014400                _calloc_r
- .text          0x0001449c       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
-                0x0001449c                _close_r
- .text          0x000144d8       0x10 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
-                0x000144d8                __errno
- .text          0x000144e8       0xf4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
-                0x000144e8                _fclose_r
-                0x000145c8                fclose
- .text          0x000145dc       0x40 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
-                0x000145dc                _fstat_r
- .text          0x0001461c      0x764 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
-                0x00014650                __hexdig_init
-                0x0001473c                __gethex
- .text          0x00014d80      0x240 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
-                0x00014db8                __hexnan
- .text          0x00014fc0       0x44 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
-                0x00014fc0                _lseek_r
- .text          0x00015004      0x18c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
-                0x00015074                cleanup_glue
-                0x000150a0                _reclaim_reent
-                0x00015004                _wrapup_reent
- .text          0x00015190      0x114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
-                0x00015190                __udivsi3
-                0x00015190                __aeabi_uidiv
-                0x0001528c                __aeabi_uidivmod
- .text          0x000152a4      0x144 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
-                0x000152a4                __aeabi_idiv
-                0x000152a4                __divsi3
-                0x000153d0                __aeabi_idivmod
- .text          0x000153e8       0xd0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
-                0x000153e8                __umodsi3
- .text          0x000154b8       0xe8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
-                0x000154b8                __modsi3
- .text          0x000155a0        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
-                0x000155a0                __aeabi_ldiv0
-                0x000155a0                __div0
-                0x000155a0                __aeabi_idiv0
- .text          0x000155a4      0x430 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
-                0x00015968                __floatdidf
-                0x000158e8                __floatsidf
-                0x000158c0                __aeabi_ui2d
-                0x000155a4                __aeabi_drsub
-                0x00015914                __extendsfdf2
-                0x000155b0                __adddf3
-                0x000158c0                __floatunsidf
-                0x000155b0                __aeabi_dadd
-                0x00015954                __aeabi_ul2d
-                0x000155ac                __aeabi_dsub
-                0x00015954                __floatundidf
-                0x000158e8                __aeabi_i2d
-                0x00015968                __aeabi_l2d
-                0x00015914                __aeabi_f2d
-                0x000155ac                __subdf3
- .text          0x000159d4      0x49c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
-                0x00015c64                __aeabi_ddiv
-                0x000159d4                __aeabi_dmul
-                0x00015c64                __divdf3
-                0x000159d4                __muldf3
- .text          0x00015e70      0x140 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
-                0x00015f68                __aeabi_dcmple
-                0x00015e80                __cmpdf2
-                0x00015e80                __eqdf2
-                0x00015e70                __gtdf2
-                0x00015f20                __aeabi_cdcmple
-                0x00015f04                __aeabi_cdrcmple
-                0x00015e78                __ltdf2
-                0x00015f50                __aeabi_dcmplt
-                0x00015e78                __ledf2
-                0x00015f98                __aeabi_dcmpgt
-                0x00015f80                __aeabi_dcmpge
-                0x00015e80                __nedf2
-                0x00015f38                __aeabi_dcmpeq
-                0x00015f20                __aeabi_cdcmpeq
-                0x00015e70                __gedf2
- .text          0x00015fb0       0x5c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
-                0x00015fb0                __fixdfsi
-                0x00015fb0                __aeabi_d2iz
- .text          0x0001600c       0x54 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
-                0x0001600c                __fixunsdfsi
-                0x0001600c                __aeabi_d2uiz
- .text          0x00016060       0xa0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
-                0x00016060                __aeabi_d2f
-                0x00016060                __truncdfsf2
-                0x00016100                . = ALIGN (0x4)
-                0x00016100                __code_end__ = .
+                0x00000414                initTimer
+                0x0000037c                dacInit
+ .text          0x00000530      0x160 .\objects\isrRoutine.o
+                0x00000530                isrRoutine
+ .text          0x00000690      0x214 .\objects\main.o
+                0x00000690                main
+ .text          0x000008a4      0x2a8 .\objects\mp3.o
+                0x0000091c                decode
+                0x00000ab4                initMp3Module
+                0x000008d8                fillBuffer
+                0x000008a4                mp3Cleanup
+ .text          0x00000b4c      0xee0 .\objects\spi.o
+                0x00000e0c                spiFlashMemGlobalUnprotect
+                0x00000d80                spiFlashMemSetWriteEnable
+                0x00001300                eraseChip
+                0x00000cb0                spiFlashMemWaitReady
+                0x000013cc                readSpecs
+                0x00001004                spiFlashMemRead
+                0x00001530                testSpiMem
+                0x000011c4                spiFlashMemErase
+                0x00001610                menue
+                0x00000c04                spiFlashMemReadStatusRegister
+                0x0000113c                spiReadBytes
+                0x00000eb8                spiFlashMemWrite
+                0x00000b4c                sspInit
+ .text          0x00001a2c      0x818 .\objects\ConfigStick.o
+                0x000020d0                Check_Hardware
+                0x00001fd8                ADC_get_channel
+                0x00001a2c                Peripheral_Clock_Configuration
+                0x00001a8c                Power_Configuration
+                0x000021b4                BaseStickConfig
+                0x00001fac                WDT_Configuration
+                0x00001b34                GPIO_Configuration
+ .text          0x00002244      0x1f4 .\objects\armVIC.o
+                0x000022d8                restoreIRQ
+                0x000023f8                enableFIQ
+                0x00002368                disableFIQ
+                0x00002328                enableIRQ
+                0x000023a8                restoreFIQ
+                0x00002244                disableIRQ
+ .text          0x00002438      0x144 .\objects\delay.o
+                0x00002438                delay
+                0x00002510                init_delay
+ .text          0x0000257c      0x1b8 .\objects\fio.o
+                0x0000257c                GPIOInit
+ .text          0x00002734       0xd8 .\objects\interrupt.o
+                0x00002734                SWI_Handler
+                0x000027d8                Undef_Handler
+                0x000027c4                DAbt_Handler
+                0x000027ec                FIQ_Handler
+                0x000027b0                PAbt_Handler
+ .text          0x0000280c      0x6a8 .\objects\portlcd.o
+                0x000028f0                lcd_write
+                0x00002b00                LCD_init
+                0x00002be4                LCD_load
+                0x0000280c                lcd_delay
+                0x00002a48                lcd_wait_busy
+                0x00002a80                lcd_write_cmd
+                0x00002db0                LCD_puts
+                0x00002e08                LCD_bargraph
+                0x00002844                lcd_write_4bit
+                0x00002d30                LCD_on
+                0x00002d50                LCD_putc
+                0x00002ac0                lcd_write_data
+                0x00002c5c                LCD_gotoxy
+                0x00002928                lcd_read_stat
+                0x00002d10                LCD_cur_off
+                0x00002ce4                LCD_cls
+ .text          0x00002eb4      0x27c .\objects\syscalls_lpc.o
+                0x00003088                _sbrk_r
+                0x00002f74                _read_r
+                0x00002eb4                _write_r
+ .text          0x00003130      0x180 .\objects\target_info.o
+                0x0000320c                GetPclk
+                0x00003130                GetCclk
+ .text          0x000032b0      0xd18 .\objects\uart.o
+                0x00003c74                uart2Space
+                0x00003d68                uart2Write
+                0x00003e2c                uart2TxEmpty
+                0x000036e4                uart0Write
+                0x00003490                uart0Putch
+                0x000032b0                uart0Init
+                0x000037e8                uart0TxFlush
+                0x00003e6c                uart2TxFlush
+                0x00003674                uart0Puts
+                0x00003888                uart0Getch
+                0x000035f0                uart0Space
+                0x00003944                uart2Init
+                0x000037a8                uart0TxEmpty
+                0x00003f0c                uart2Getch
+                0x00003b14                uart2Putch
+                0x00003cf8                uart2Puts
+ .text          0x00003fc8      0x508 .\objects\uartISR.o
+                0x00004238                uart2ISR
+                0x00003fc8                uart0ISR
+ .text          0x000044d0      0x6a4 lib/libhelix.a(mp3dec.o)
+                0x000044d0                MP3FindSyncWord
+                0x00004b58                MP3InitDecoder
+                0x00004b38                MP3FreeDecoder
+                0x00004618                MP3GetNextFrameInfo
+                0x00004530                MP3GetLastFrameInfo
+                0x0000467c                MP3Decode
+ .text          0x00004b74        0x0 lib/libhelix.a(mp3tabs.o)
+ .text          0x00004b74      0x91c lib/libhelix.a(scalfact.o)
+                0x00004b74                xmp3fixpt_UnpackScaleFactors
+ .text          0x00005490      0x19c lib/libhelix.a(subband.o)
+                0x00005490                xmp3fixpt_Subband
+ .text          0x0000562c        0x0 lib/libhelix.a(trigtabs_fixpt.o)
+ .text          0x0000562c      0x8b8 lib/libhelix.a(asmpoly_gcc.o)
+                0x00005b98                xmp3fixpt_PolyphaseMono
+                0x0000562c                xmp3fixpt_PolyphaseStereo
+ .text          0x00005ee4      0x7fc lib/libhelix.a(bitstream.o)
+                0x00006324                xmp3fixpt_UnpackSideInfo
+                0x00005efc                xmp3fixpt_GetBits
+                0x00006030                xmp3fixpt_CalcBitsUsed
+                0x00006048                xmp3fixpt_CheckPadBit
+                0x00006074                xmp3fixpt_UnpackFrameHeader
+                0x00005ee4                xmp3fixpt_SetBitstreamPointer
+ .text          0x000066e0      0x224 lib/libhelix.a(buffers.o)
+                0x000067a0                xmp3fixpt_AllocateBuffers
+                0x00006704                xmp3fixpt_FreeBuffers
+ .text          0x00006904      0xb74 lib/libhelix.a(dct32.o)
+                0x00006904                xmp3fixpt_FDCT32
+ .text          0x00007478      0x40c lib/libhelix.a(dequant.o)
+                0x00007478                xmp3fixpt_Dequantize
+ .text          0x00007884      0x62c lib/libhelix.a(dqchan.o)
+                0x00007ac0                xmp3fixpt_DequantChannel
+ .text          0x00007eb0      0x9c0 lib/libhelix.a(huffman.o)
+                0x00007eb0                xmp3fixpt_DecodeHuffman
+ .text          0x00008870        0x0 lib/libhelix.a(hufftabs.o)
+ .text          0x00008870     0x176c lib/libhelix.a(imdct.o)
+                0x00008be4                xmp3fixpt_IMDCT
+ .text          0x00009fdc      0x9bc lib/libhelix.a(stproc.o)
+                0x0000a4c8                xmp3fixpt_IntensityProcMPEG1
+                0x00009fdc                xmp3fixpt_MidSideProc
+                0x0000a070                xmp3fixpt_IntensityProcMPEG2
+ .text          0x0000a998        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+ .text          0x0000a998       0x40 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
+                0x0000a9b8                malloc
+                0x0000a998                free
+ .text          0x0000a9d8      0x688 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
+                0x0000a9d8                _malloc_r
+ .text          0x0000b060       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
+                0x0000b060                memcmp
+ .text          0x0000b09c       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
+                0x0000b09c                memcpy
+ .text          0x0000b0bc       0x54 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
+                0x0000b0bc                memmove
+ .text          0x0000b110       0x1c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
+                0x0000b110                memset
+ .text          0x0000b12c        0x8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
+                0x0000b130                __malloc_unlock
+                0x0000b12c                __malloc_lock
+ .text          0x0000b134       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
+                0x0000b134                printf
+                0x0000b174                _printf_r
+ .text          0x0000b1a8       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
+                0x0000b1a8                putchar
+                0x0000b1d0                _putchar_r
+ .text          0x0000b1e4       0x88 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
+                0x0000b1e4                _puts_r
+                0x0000b258                puts
+ .text          0x0000b26c       0x4c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
+                0x0000b2a4                __srget
+                0x0000b26c                __srget_r
+ .text          0x0000b2b8       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
+                0x0000b2b8                _scanf_r
+                0x0000b2ec                scanf
+ .text          0x0000b32c       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
+                0x0000b32c                strlen
+ .text          0x0000b34c     0x1da0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+                0x0000b388                _vfprintf_r
+                0x0000d0c0                vfprintf
+ .text          0x0000d0ec     0x1114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+                0x0000e148                __svfscanf
+                0x0000e174                _vfscanf_r
+                0x0000e1b0                vfscanf
+                0x0000d0ec                __svfscanf_r
+ .text          0x0000e200       0x78 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
+                0x0000e200                _wcrtomb_r
+                0x0000e24c                wcrtomb
+ .text          0x0000e278      0x14c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
+                0x0000e278                _wcsrtombs_r
+                0x0000e384                wcsrtombs
+ .text          0x0000e3c4      0x424 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
+                0x0000e3c4                _wctomb_r
+ .text          0x0000e7e8       0xf8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
+                0x0000e7e8                __swsetup
+ .text          0x0000e8e0        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
+ .text          0x0000e8e0     0x14fc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
+                0x0000eabc                _dtoa_r
+ .text          0x0000fddc      0x19c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
+                0x0000fddc                fflush
+ .text          0x0000ff78      0x284 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
+                0x0000ffd4                __sinit
+                0x0001009c                __sfmoreglue
+                0x0001008c                _cleanup
+                0x00010074                _cleanup_r
+                0x00010110                __fp_lock_all
+                0x00010054                __sfp_lock_acquire
+                0x00010134                __sfp
+                0x00010060                __sinit_lock_release
+                0x000100ec                __fp_unlock_all
+                0x00010058                __sfp_lock_release
+                0x0001005c                __sinit_lock_acquire
+ .text          0x000101fc      0x120 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
+                0x000102dc                fread
+                0x000101fc                _fread_r
+ .text          0x0001031c      0x35c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
+                0x00010418                _free_r
+                0x0001031c                _malloc_trim_r
+ .text          0x00010678      0x3fc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
+                0x00010678                __sfvwrite_r
+ .text          0x00010a74       0xf4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
+                0x00010af0                _fwalk
+                0x00010a74                _fwalk_reent
+ .text          0x00010b68       0x24 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
+                0x00010b68                iswspace
+ .text          0x00010b8c       0xa8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+                0x00010ba8                _setlocale_r
+                0x00010b8c                __locale_charset
+                0x00010b9c                _localeconv_r
+                0x00010c0c                setlocale
+                0x00010c28                localeconv
+ .text          0x00010c34      0x154 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
+                0x00010c34                __smakebuf
+ .text          0x00010d88       0x98 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
+                0x00010de0                mbrtowc
+                0x00010d88                _mbrtowc_r
+ .text          0x00010e20       0x50 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
+                0x00010e20                _mbtowc_r
+ .text          0x00010e70       0x28 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
+                0x00010e70                memchr
+ .text          0x00010e98      0xc00 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
+                0x0001118c                _mprec_log10
+                0x00011240                __any_on
+                0x000112a8                _Balloc
+                0x00011110                __ratio
+                0x000117ec                __i2b
+                0x0001105c                __b2d
+                0x000119b4                __s2b
+                0x00010f9c                __mcmp
+                0x00010eb4                __hi0bits
+                0x000118d8                __pow5mult
+                0x00011574                __lshift
+                0x00011654                __multiply
+                0x0001133c                __d2b
+                0x000111f8                __copybits
+                0x00010ffc                __ulp
+                0x00011450                __mdiff
+                0x00010f0c                __lo0bits
+                0x00011810                __multadd
+                0x00010e98                _Bfree
+ .text          0x00011a98       0xb4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
+                0x00011a98                _putc_r
+                0x00011b30                putc
+ .text          0x00011b4c      0x4d4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
+                0x00011b4c                _realloc_r
+ .text          0x00012020      0x1b8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
+                0x0001204c                __srefill_r
+ .text          0x000121d8       0x2c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
+                0x000121d8                __isinfd
+ .text          0x00012204       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
+                0x00012204                __isnand
+ .text          0x00012224       0xcc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
+                0x00012224                __sccl
+ .text          0x000122f0        0xc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
+                0x000122f0                nanf
+ .text          0x000122fc       0xdc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
+                0x00012370                _sprintf_r
+                0x000122fc                sprintf
+ .text          0x000123d8      0x110 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
+                0x000123f8                __sseek
+                0x000124a0                __sread
+                0x000123d8                __sclose
+                0x00012440                __swrite
+ .text          0x000124e8       0x30 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
+                0x000124e8                strcmp
+ .text          0x00012518     0x12d0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+                0x00012564                _strtod_r
+                0x000137cc                strtod
+                0x00013778                strtof
+ .text          0x000137e8      0x1c4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
+                0x00013980                strtol
+                0x000137e8                _strtol_r
+ .text          0x000139ac      0x1a4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
+                0x00013b24                strtoul
+                0x000139ac                _strtoul_r
+ .text          0x00013b50      0x5e4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
+                0x00013c14                _getpid
+                0x00013b80                initialise_monitor_handles
+                0x00013c88                isatty
+                0x00013e04                _fstat
+                0x00013de4                _open
+                0x00013cd8                _sbrk
+                0x00013c2c                _raise
+                0x00013c5c                _times
+                0x00013edc                _stat
+                0x00014084                _lseek
+                0x00013c1c                _link
+                0x00013f40                _swiwrite
+                0x00013c98                _rename
+                0x00013fe0                _swilseek
+                0x00013ea8                _swiclose
+                0x00013d48                _swiopen
+                0x00013c24                _unlink
+                0x00013f6c                _write
+                0x00013c0c                _kill
+                0x00013c30                _gettimeofday
+                0x000140c0                _read
+                0x0001412c                _exit
+                0x00013cb4                _system
+                0x00014094                _swiread
+                0x00013f30                _close
+ .text          0x00014134      0x228 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
+                0x00014340                ungetc
+                0x00014134                __submore
+                0x000141e8                _ungetc_r
+ .text          0x0001435c      0x114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
+                0x0001435c                __swbuf_r
+                0x00014454                __swbuf
+ .text          0x00014470       0x9c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
+                0x00014470                _calloc_r
+ .text          0x0001450c       0x3c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
+                0x0001450c                _close_r
+ .text          0x00014548       0x10 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
+                0x00014548                __errno
+ .text          0x00014558       0xf4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
+                0x00014558                _fclose_r
+                0x00014638                fclose
+ .text          0x0001464c       0x40 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
+                0x0001464c                _fstat_r
+ .text          0x0001468c      0x764 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
+                0x000146c0                __hexdig_init
+                0x000147ac                __gethex
+ .text          0x00014df0      0x240 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
+                0x00014e28                __hexnan
+ .text          0x00015030       0x44 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
+                0x00015030                _lseek_r
+ .text          0x00015074      0x18c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
+                0x000150e4                cleanup_glue
+                0x00015110                _reclaim_reent
+                0x00015074                _wrapup_reent
+ .text          0x00015200      0x114 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+                0x00015200                __udivsi3
+                0x00015200                __aeabi_uidiv
+                0x000152fc                __aeabi_uidivmod
+ .text          0x00015314      0x144 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
+                0x00015314                __aeabi_idiv
+                0x00015314                __divsi3
+                0x00015440                __aeabi_idivmod
+ .text          0x00015458       0xd0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
+                0x00015458                __umodsi3
+ .text          0x00015528       0xe8 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
+                0x00015528                __modsi3
+ .text          0x00015610        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+                0x00015610                __aeabi_ldiv0
+                0x00015610                __div0
+                0x00015610                __aeabi_idiv0
+ .text          0x00015614      0x430 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
+                0x000159d8                __floatdidf
+                0x00015958                __floatsidf
+                0x00015930                __aeabi_ui2d
+                0x00015614                __aeabi_drsub
+                0x00015984                __extendsfdf2
+                0x00015620                __adddf3
+                0x00015930                __floatunsidf
+                0x00015620                __aeabi_dadd
+                0x000159c4                __aeabi_ul2d
+                0x0001561c                __aeabi_dsub
+                0x000159c4                __floatundidf
+                0x00015958                __aeabi_i2d
+                0x000159d8                __aeabi_l2d
+                0x00015984                __aeabi_f2d
+                0x0001561c                __subdf3
+ .text          0x00015a44      0x49c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
+                0x00015cd4                __aeabi_ddiv
+                0x00015a44                __aeabi_dmul
+                0x00015cd4                __divdf3
+                0x00015a44                __muldf3
+ .text          0x00015ee0      0x140 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
+                0x00015fd8                __aeabi_dcmple
+                0x00015ef0                __cmpdf2
+                0x00015ef0                __eqdf2
+                0x00015ee0                __gtdf2
+                0x00015f90                __aeabi_cdcmple
+                0x00015f74                __aeabi_cdrcmple
+                0x00015ee8                __ltdf2
+                0x00015fc0                __aeabi_dcmplt
+                0x00015ee8                __ledf2
+                0x00016008                __aeabi_dcmpgt
+                0x00015ff0                __aeabi_dcmpge
+                0x00015ef0                __nedf2
+                0x00015fa8                __aeabi_dcmpeq
+                0x00015f90                __aeabi_cdcmpeq
+                0x00015ee0                __gedf2
+ .text          0x00016020       0x5c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
+                0x00016020                __fixdfsi
+                0x00016020                __aeabi_d2iz
+ .text          0x0001607c       0x54 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
+                0x0001607c                __fixunsdfsi
+                0x0001607c                __aeabi_d2uiz
+ .text          0x000160d0       0xa0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
+                0x000160d0                __aeabi_d2f
+                0x000160d0                __truncdfsf2
+                0x00016170                . = ALIGN (0x4)
+                0x00016170                __code_end__ = .
  *(.gnu.linkonce.t.*)
  *(.glue_7)
- .glue_7        0x00016100        0x0 .\objects\audioOut.o
- .glue_7        0x00016100        0x0 .\objects\isrRoutine.o
- .glue_7        0x00016100        0x0 .\objects\main.o
- .glue_7        0x00016100        0x0 .\objects\mp3.o
- .glue_7        0x00016100        0x0 .\objects\spi.o
- .glue_7        0x00016100        0x0 .\objects\startup.o
- .glue_7        0x00016100        0x0 .\objects\ConfigStick.o
- .glue_7        0x00016100        0x0 .\objects\armVIC.o
- .glue_7        0x00016100        0x0 .\objects\delay.o
- .glue_7        0x00016100        0x0 .\objects\fio.o
- .glue_7        0x00016100        0x0 .\objects\interrupt.o
- .glue_7        0x00016100        0x0 .\objects\portlcd.o
- .glue_7        0x00016100        0x0 .\objects\syscalls_lpc.o
- .glue_7        0x00016100        0x0 .\objects\target_info.o
- .glue_7        0x00016100        0x0 .\objects\uart.o
- .glue_7        0x00016100        0x0 .\objects\uartISR.o
- .glue_7        0x00016100        0x0 lib/libhelix.a(mp3dec.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(mp3tabs.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(scalfact.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(subband.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(trigtabs_fixpt.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(asmpoly_gcc.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(bitstream.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(buffers.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(dct32.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(dequant.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(dqchan.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(huffman.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(hufftabs.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(imdct.o)
- .glue_7        0x00016100        0x0 lib/libhelix.a(stproc.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
- .glue_7        0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
+ .glue_7        0x00016170        0x0 .\objects\audioOut.o
+ .glue_7        0x00016170        0x0 .\objects\isrRoutine.o
+ .glue_7        0x00016170        0x0 .\objects\main.o
+ .glue_7        0x00016170        0x0 .\objects\mp3.o
+ .glue_7        0x00016170        0x0 .\objects\spi.o
+ .glue_7        0x00016170        0x0 .\objects\startup.o
+ .glue_7        0x00016170        0x0 .\objects\ConfigStick.o
+ .glue_7        0x00016170        0x0 .\objects\armVIC.o
+ .glue_7        0x00016170        0x0 .\objects\delay.o
+ .glue_7        0x00016170        0x0 .\objects\fio.o
+ .glue_7        0x00016170        0x0 .\objects\interrupt.o
+ .glue_7        0x00016170        0x0 .\objects\portlcd.o
+ .glue_7        0x00016170        0x0 .\objects\syscalls_lpc.o
+ .glue_7        0x00016170        0x0 .\objects\target_info.o
+ .glue_7        0x00016170        0x0 .\objects\uart.o
+ .glue_7        0x00016170        0x0 .\objects\uartISR.o
+ .glue_7        0x00016170        0x0 lib/libhelix.a(mp3dec.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(mp3tabs.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(scalfact.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(subband.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(trigtabs_fixpt.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(asmpoly_gcc.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(bitstream.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(buffers.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(dct32.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(dequant.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(dqchan.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(huffman.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(hufftabs.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(imdct.o)
+ .glue_7        0x00016170        0x0 lib/libhelix.a(stproc.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
+ .glue_7        0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
  *(.glue_7t)
- .glue_7t       0x00016100        0x0 .\objects\audioOut.o
- .glue_7t       0x00016100        0x0 .\objects\isrRoutine.o
- .glue_7t       0x00016100        0x0 .\objects\main.o
- .glue_7t       0x00016100        0x0 .\objects\mp3.o
- .glue_7t       0x00016100        0x0 .\objects\spi.o
- .glue_7t       0x00016100        0x0 .\objects\startup.o
- .glue_7t       0x00016100        0x0 .\objects\ConfigStick.o
- .glue_7t       0x00016100        0x0 .\objects\armVIC.o
- .glue_7t       0x00016100        0x0 .\objects\delay.o
- .glue_7t       0x00016100        0x0 .\objects\fio.o
- .glue_7t       0x00016100        0x0 .\objects\interrupt.o
- .glue_7t       0x00016100        0x0 .\objects\portlcd.o
- .glue_7t       0x00016100        0x0 .\objects\syscalls_lpc.o
- .glue_7t       0x00016100        0x0 .\objects\target_info.o
- .glue_7t       0x00016100        0x0 .\objects\uart.o
- .glue_7t       0x00016100        0x0 .\objects\uartISR.o
- .glue_7t       0x00016100        0x0 lib/libhelix.a(mp3dec.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(mp3tabs.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(scalfact.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(subband.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(trigtabs_fixpt.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(asmpoly_gcc.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(bitstream.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(buffers.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(dct32.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(dequant.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(dqchan.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(huffman.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(hufftabs.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(imdct.o)
- .glue_7t       0x00016100        0x0 lib/libhelix.a(stproc.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
- .glue_7t       0x00016100        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
+ .glue_7t       0x00016170        0x0 .\objects\audioOut.o
+ .glue_7t       0x00016170        0x0 .\objects\isrRoutine.o
+ .glue_7t       0x00016170        0x0 .\objects\main.o
+ .glue_7t       0x00016170        0x0 .\objects\mp3.o
+ .glue_7t       0x00016170        0x0 .\objects\spi.o
+ .glue_7t       0x00016170        0x0 .\objects\startup.o
+ .glue_7t       0x00016170        0x0 .\objects\ConfigStick.o
+ .glue_7t       0x00016170        0x0 .\objects\armVIC.o
+ .glue_7t       0x00016170        0x0 .\objects\delay.o
+ .glue_7t       0x00016170        0x0 .\objects\fio.o
+ .glue_7t       0x00016170        0x0 .\objects\interrupt.o
+ .glue_7t       0x00016170        0x0 .\objects\portlcd.o
+ .glue_7t       0x00016170        0x0 .\objects\syscalls_lpc.o
+ .glue_7t       0x00016170        0x0 .\objects\target_info.o
+ .glue_7t       0x00016170        0x0 .\objects\uart.o
+ .glue_7t       0x00016170        0x0 .\objects\uartISR.o
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(mp3dec.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(mp3tabs.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(scalfact.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(subband.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(trigtabs_fixpt.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(asmpoly_gcc.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(bitstream.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(buffers.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(dct32.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(dequant.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(dqchan.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(huffman.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(hufftabs.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(imdct.o)
+ .glue_7t       0x00016170        0x0 lib/libhelix.a(stproc.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
+ .glue_7t       0x00016170        0x0 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
  *(.gcc_except_table)
  *(.gnu.linkonce.r.*)
-                0x00016100                . = ALIGN (0x4)
+                0x00016170                . = ALIGN (0x4)
 
-.rodata         0x00016100     0x37a4
+.rodata         0x00016170     0x37b0
  *(.rodata)
- .rodata        0x00016100       0x38 .\objects\main.o
- .rodata        0x00016138       0x40 .\objects\portlcd.o
- .rodata        0x00016178      0x510 lib/libhelix.a(mp3tabs.o)
-                0x0001619c                xmp3fixpt_bitrateTab
-                0x000162ce                xmp3fixpt_slotTab
-                0x000162aa                xmp3fixpt_samplesPerFrameTab
-                0x00016178                xmp3fixpt_samplerateTab
-                0x000162bc                xmp3fixpt_bitsPerSlotTab
-                0x000163dc                xmp3fixpt_sfBandTable
-                0x000162c2                xmp3fixpt_sideBytesTab
- .rodata        0x00016688       0x68 lib/libhelix.a(scalfact.o)
- .rodata        0x000166f0      0x86c lib/libhelix.a(trigtabs_fixpt.o)
-                0x00016930                xmp3fixpt_ISFMpeg1
-                0x00016a68                xmp3fixpt_ISFIIP
-                0x00016ac0                xmp3fixpt_coef32
-                0x00016968                xmp3fixpt_ISFMpeg2
-                0x00016a78                xmp3fixpt_uniqueIDTab
-                0x00016b3c                xmp3fixpt_polyCoef
-                0x00016a80                xmp3fixpt_csa
-                0x000166f0                xmp3fixpt_imdctWin
- .rodata        0x00016f5c       0xc0 lib/libhelix.a(dct32.o)
- .rodata        0x0001701c      0x250 lib/libhelix.a(dqchan.o)
- .rodata        0x0001726c     0x2304 lib/libhelix.a(hufftabs.o)
-                0x00019568                xmp3fixpt_quadTabMaxBits
-                0x00019410                xmp3fixpt_huffTabLookup
-                0x00019560                xmp3fixpt_quadTabOffset
-                0x00019390                xmp3fixpt_huffTabOffset
-                0x0001726c                xmp3fixpt_huffTable
-                0x00019510                xmp3fixpt_quadTable
- .rodata        0x00019570       0x6c lib/libhelix.a(imdct.o)
- .rodata        0x000195dc        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
-                0x000195dc                _global_impure_ptr
- .rodata        0x000195e0       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
- .rodata        0x00019600       0x22 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
- .rodata        0x00019622      0x101 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
-                0x00019622                _ctype_
- *fill*         0x00019723        0x1 00
- .rodata        0x00019724       0x34 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
- .rodata        0x00019758      0x124 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
-                0x00019848                __mprec_tinytens
-                0x00019758                __mprec_tens
-                0x00019820                __mprec_bigtens
- .rodata        0x0001987c       0x28 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+ .rodata        0x00016170       0x44 .\objects\main.o
+ .rodata        0x000161b4       0x40 .\objects\portlcd.o
+ .rodata        0x000161f4      0x510 lib/libhelix.a(mp3tabs.o)
+                0x00016218                xmp3fixpt_bitrateTab
+                0x0001634a                xmp3fixpt_slotTab
+                0x00016326                xmp3fixpt_samplesPerFrameTab
+                0x000161f4                xmp3fixpt_samplerateTab
+                0x00016338                xmp3fixpt_bitsPerSlotTab
+                0x00016458                xmp3fixpt_sfBandTable
+                0x0001633e                xmp3fixpt_sideBytesTab
+ .rodata        0x00016704       0x68 lib/libhelix.a(scalfact.o)
+ .rodata        0x0001676c      0x86c lib/libhelix.a(trigtabs_fixpt.o)
+                0x000169ac                xmp3fixpt_ISFMpeg1
+                0x00016ae4                xmp3fixpt_ISFIIP
+                0x00016b3c                xmp3fixpt_coef32
+                0x000169e4                xmp3fixpt_ISFMpeg2
+                0x00016af4                xmp3fixpt_uniqueIDTab
+                0x00016bb8                xmp3fixpt_polyCoef
+                0x00016afc                xmp3fixpt_csa
+                0x0001676c                xmp3fixpt_imdctWin
+ .rodata        0x00016fd8       0xc0 lib/libhelix.a(dct32.o)
+ .rodata        0x00017098      0x250 lib/libhelix.a(dqchan.o)
+ .rodata        0x000172e8     0x2304 lib/libhelix.a(hufftabs.o)
+                0x000195e4                xmp3fixpt_quadTabMaxBits
+                0x0001948c                xmp3fixpt_huffTabLookup
+                0x000195dc                xmp3fixpt_quadTabOffset
+                0x0001940c                xmp3fixpt_huffTabOffset
+                0x000172e8                xmp3fixpt_huffTable
+                0x0001958c                xmp3fixpt_quadTable
+ .rodata        0x000195ec       0x6c lib/libhelix.a(imdct.o)
+ .rodata        0x00019658        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+                0x00019658                _global_impure_ptr
+ .rodata        0x0001965c       0x20 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+ .rodata        0x0001967c       0x22 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+ .rodata        0x0001969e      0x101 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
+                0x0001969e                _ctype_
+ *fill*         0x0001979f        0x1 00
+ .rodata        0x000197a0       0x34 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+ .rodata        0x000197d4      0x124 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
+                0x000198c4                __mprec_tinytens
+                0x000197d4                __mprec_tens
+                0x0001989c                __mprec_bigtens
+ .rodata        0x000198f8       0x28 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
 
-.rodata.str1.4  0x000198a4      0x74c
+.rodata.str1.4  0x00019920      0x74c
  .rodata.str1.4
-                0x000198a4       0xbf .\objects\mp3.o
+                0x00019920       0xbf .\objects\mp3.o
                                  0xc0 (size before relaxing)
- *fill*         0x00019963        0x1 00
+ *fill*         0x000199df        0x1 00
  .rodata.str1.4
-                0x00019964      0x5ae .\objects\spi.o
+                0x000199e0      0x5ae .\objects\spi.o
                                 0x5b0 (size before relaxing)
- *fill*         0x00019f12        0x2 00
+ *fill*         0x00019f8e        0x2 00
  .rodata.str1.4
-                0x00019f14        0x2 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+                0x00019f90        0x2 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
                                   0x4 (size before relaxing)
  .rodata.str1.4
                 0x00000000        0x2 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
                                   0x4 (size before relaxing)
- *fill*         0x00019f16        0x2 00
+ *fill*         0x00019f92        0x2 00
  .rodata.str1.4
-                0x00019f18       0x63 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+                0x00019f94       0x63 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
                                  0x64 (size before relaxing)
- *fill*         0x00019f7b        0x1 00
+ *fill*         0x00019ff7        0x1 00
  .rodata.str1.4
-                0x00019f7c        0x5 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+                0x00019ff8        0x5 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
                                   0x8 (size before relaxing)
- *fill*         0x00019f81        0x3 00
+ *fill*         0x00019ffd        0x3 00
  .rodata.str1.4
-                0x00019f84       0x1e C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
+                0x0001a000       0x1e C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
                                  0x20 (size before relaxing)
- *fill*         0x00019fa2        0x2 00
+ *fill*         0x0001a01e        0x2 00
  .rodata.str1.4
-                0x00019fa4       0x10 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
+                0x0001a020       0x10 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
                                  0x14 (size before relaxing)
  .rodata.str1.4
-                0x00019fb4        0xb C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+                0x0001a030        0xb C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
                                  0x18 (size before relaxing)
  .rodata.str1.4
                 0x00000000        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
- *fill*         0x00019fbf        0x1 00
+ *fill*         0x0001a03b        0x1 00
  .rodata.str1.4
-                0x00019fc0        0xf C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+                0x0001a03c        0xf C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
                                  0x10 (size before relaxing)
- *fill*         0x00019fcf        0x1 00
+ *fill*         0x0001a04b        0x1 00
  .rodata.str1.4
-                0x00019fd0        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
+                0x0001a04c        0x4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
  .rodata.str1.4
-                0x00019fd4       0x1c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
-                0x00019ff0                . = ALIGN (0x4)
-                0x00019ff0                _etext = .
-                0x00019ff0                PROVIDE (etext, .)
+                0x0001a050       0x1c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
+                0x0001a06c                . = ALIGN (0x4)
+                0x0001a06c                _etext = .
+                0x0001a06c                PROVIDE (etext, .)
 
-.data           0x40000000      0x860 load address 0x00019ff0
+.data           0x40000000      0x860 load address 0x0001a06c
                 0x40000000                __data_start__ = .
                 0x40000000                PROVIDE (__data_start__, .)
  *(.data)
@@ -1962,110 +1962,110 @@ LOAD .\objects\uartISR.o
  .debug_abbrev  0x000080ee       0x14 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
  .debug_abbrev  0x00008102       0x14 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
 
-.debug_line     0x00000000     0x8b87
+.debug_line     0x00000000     0x8b95
  *(.debug_line)
- .debug_line    0x00000000      0x10e .\objects\audioOut.o
- .debug_line    0x0000010e      0x121 .\objects\isrRoutine.o
- .debug_line    0x0000022f      0x102 .\objects\main.o
- .debug_line    0x00000331      0x13f .\objects\mp3.o
- .debug_line    0x00000470      0x2ff .\objects\spi.o
- .debug_line    0x0000076f       0x70 .\objects\startup.o
- .debug_line    0x000007df      0x14b .\objects\ConfigStick.o
- .debug_line    0x0000092a       0x69 .\objects\armVIC.o
- .debug_line    0x00000993       0xd9 .\objects\delay.o
- .debug_line    0x00000a6c       0xdd .\objects\fio.o
- .debug_line    0x00000b49       0x5c .\objects\interrupt.o
- .debug_line    0x00000ba5       0xd7 .\objects\portlcd.o
- .debug_line    0x00000c7c      0x181 .\objects\syscalls_lpc.o
- .debug_line    0x00000dfd       0x5c .\objects\target_info.o
- .debug_line    0x00000e59      0x19f .\objects\uart.o
- .debug_line    0x00000ff8      0x122 .\objects\uartISR.o
- .debug_line    0x0000111a      0x19a lib/libhelix.a(mp3dec.o)
- .debug_line    0x000012b4       0x58 lib/libhelix.a(mp3tabs.o)
- .debug_line    0x0000130c      0x1ec lib/libhelix.a(scalfact.o)
- .debug_line    0x000014f8       0xac lib/libhelix.a(subband.o)
- .debug_line    0x000015a4       0x40 lib/libhelix.a(trigtabs_fixpt.o)
- .debug_line    0x000015e4      0x279 lib/libhelix.a(asmpoly_gcc.o)
- .debug_line    0x0000185d      0x1ac lib/libhelix.a(bitstream.o)
- .debug_line    0x00001a09       0xd7 lib/libhelix.a(buffers.o)
- .debug_line    0x00001ae0      0x3f1 lib/libhelix.a(dct32.o)
- .debug_line    0x00001ed1      0x103 lib/libhelix.a(dequant.o)
- .debug_line    0x00001fd4      0x23e lib/libhelix.a(dqchan.o)
- .debug_line    0x00002212      0x275 lib/libhelix.a(huffman.o)
- .debug_line    0x00002487       0x55 lib/libhelix.a(hufftabs.o)
- .debug_line    0x000024dc      0x8e0 lib/libhelix.a(imdct.o)
- .debug_line    0x00002dbc      0x2e7 lib/libhelix.a(stproc.o)
- .debug_line    0x000030a3       0xe7 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
- .debug_line    0x0000318a      0x101 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
- .debug_line    0x0000328b      0x1e3 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
- .debug_line    0x0000346e       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
- .debug_line    0x0000351a       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
- .debug_line    0x000035c6       0xb1 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
- .debug_line    0x00003677       0xaa C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
- .debug_line    0x00003721       0xf9 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
- .debug_line    0x0000381a      0x118 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
- .debug_line    0x00003932      0x100 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
- .debug_line    0x00003a32      0x11d C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
- .debug_line    0x00003b4f      0x138 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
- .debug_line    0x00003c87      0x117 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
- .debug_line    0x00003d9e       0xa9 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
- .debug_line    0x00003e47      0x42b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
- .debug_line    0x00004272      0x384 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
- .debug_line    0x000045f6      0x14f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
- .debug_line    0x00004745      0x16c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
- .debug_line    0x000048b1      0x1cf C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
- .debug_line    0x00004a80      0x145 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
- .debug_line    0x00004bc5       0x55 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
- .debug_line    0x00004c1a      0x3b4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
- .debug_line    0x00004fce      0x17b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
- .debug_line    0x00005149      0x1cd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
- .debug_line    0x00005316      0x15f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
- .debug_line    0x00005475      0x185 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
- .debug_line    0x000055fa      0x1bc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
- .debug_line    0x000057b6      0x154 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
- .debug_line    0x0000590a       0xec C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
- .debug_line    0x000059f6      0x150 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
- .debug_line    0x00005b46      0x16f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
- .debug_line    0x00005cb5      0x14f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
- .debug_line    0x00005e04      0x13c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
- .debug_line    0x00005f40       0xad C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
- .debug_line    0x00005fed      0x3b4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
- .debug_line    0x000063a1      0x140 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
- .debug_line    0x000064e1      0x176 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
- .debug_line    0x00006657      0x16c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
- .debug_line    0x000067c3       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
- .debug_line    0x0000686f       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
- .debug_line    0x0000691b       0xc7 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
- .debug_line    0x000069e2       0x66 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
- .debug_line    0x00006a48      0x17d C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
- .debug_line    0x00006bc5      0x165 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
- .debug_line    0x00006d2a       0x6c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
- .debug_line    0x00006d96      0x359 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
- .debug_line    0x000070ef      0x177 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
- .debug_line    0x00007266      0x172 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
- .debug_line    0x000073d8      0x273 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
- .debug_line    0x0000764b      0x180 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
- .debug_line    0x000077cb      0x156 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
- .debug_line    0x00007921      0x103 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
- .debug_line    0x00007a24       0xfd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
- .debug_line    0x00007b21       0xf6 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
- .debug_line    0x00007c17      0x149 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
- .debug_line    0x00007d60      0x14b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
- .debug_line    0x00007eab      0x230 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
- .debug_line    0x000080db      0x100 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
- .debug_line    0x000081db       0xfd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
- .debug_line    0x000082d8      0x12f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
- .debug_line    0x00008407       0x8a C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
- .debug_line    0x00008491       0x96 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
- .debug_line    0x00008527       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
- .debug_line    0x0000859b       0x7a C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
- .debug_line    0x00008615       0x63 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
- .debug_line    0x00008678      0x16b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
- .debug_line    0x000087e3      0x180 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
- .debug_line    0x00008963       0xad C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
- .debug_line    0x00008a10       0x78 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
- .debug_line    0x00008a88       0x76 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
- .debug_line    0x00008afe       0x89 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
+ .debug_line    0x00000000      0x10f .\objects\audioOut.o
+ .debug_line    0x0000010f      0x129 .\objects\isrRoutine.o
+ .debug_line    0x00000238      0x107 .\objects\main.o
+ .debug_line    0x0000033f      0x13f .\objects\mp3.o
+ .debug_line    0x0000047e      0x2ff .\objects\spi.o
+ .debug_line    0x0000077d       0x70 .\objects\startup.o
+ .debug_line    0x000007ed      0x14b .\objects\ConfigStick.o
+ .debug_line    0x00000938       0x69 .\objects\armVIC.o
+ .debug_line    0x000009a1       0xd9 .\objects\delay.o
+ .debug_line    0x00000a7a       0xdd .\objects\fio.o
+ .debug_line    0x00000b57       0x5c .\objects\interrupt.o
+ .debug_line    0x00000bb3       0xd7 .\objects\portlcd.o
+ .debug_line    0x00000c8a      0x181 .\objects\syscalls_lpc.o
+ .debug_line    0x00000e0b       0x5c .\objects\target_info.o
+ .debug_line    0x00000e67      0x19f .\objects\uart.o
+ .debug_line    0x00001006      0x122 .\objects\uartISR.o
+ .debug_line    0x00001128      0x19a lib/libhelix.a(mp3dec.o)
+ .debug_line    0x000012c2       0x58 lib/libhelix.a(mp3tabs.o)
+ .debug_line    0x0000131a      0x1ec lib/libhelix.a(scalfact.o)
+ .debug_line    0x00001506       0xac lib/libhelix.a(subband.o)
+ .debug_line    0x000015b2       0x40 lib/libhelix.a(trigtabs_fixpt.o)
+ .debug_line    0x000015f2      0x279 lib/libhelix.a(asmpoly_gcc.o)
+ .debug_line    0x0000186b      0x1ac lib/libhelix.a(bitstream.o)
+ .debug_line    0x00001a17       0xd7 lib/libhelix.a(buffers.o)
+ .debug_line    0x00001aee      0x3f1 lib/libhelix.a(dct32.o)
+ .debug_line    0x00001edf      0x103 lib/libhelix.a(dequant.o)
+ .debug_line    0x00001fe2      0x23e lib/libhelix.a(dqchan.o)
+ .debug_line    0x00002220      0x275 lib/libhelix.a(huffman.o)
+ .debug_line    0x00002495       0x55 lib/libhelix.a(hufftabs.o)
+ .debug_line    0x000024ea      0x8e0 lib/libhelix.a(imdct.o)
+ .debug_line    0x00002dca      0x2e7 lib/libhelix.a(stproc.o)
+ .debug_line    0x000030b1       0xe7 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-impure.o)
+ .debug_line    0x00003198      0x101 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-malloc.o)
+ .debug_line    0x00003299      0x1e3 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mallocr.o)
+ .debug_line    0x0000347c       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcmp.o)
+ .debug_line    0x00003528       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memcpy.o)
+ .debug_line    0x000035d4       0xb1 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memmove.o)
+ .debug_line    0x00003685       0xaa C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memset.o)
+ .debug_line    0x0000372f       0xf9 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mlock.o)
+ .debug_line    0x00003828      0x118 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-printf.o)
+ .debug_line    0x00003940      0x100 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putchar.o)
+ .debug_line    0x00003a40      0x11d C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-puts.o)
+ .debug_line    0x00003b5d      0x138 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-rget.o)
+ .debug_line    0x00003c95      0x117 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-scanf.o)
+ .debug_line    0x00003dac       0xa9 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strlen.o)
+ .debug_line    0x00003e55      0x42b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfprintf.o)
+ .debug_line    0x00004280      0x384 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-vfscanf.o)
+ .debug_line    0x00004604      0x14f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcrtomb.o)
+ .debug_line    0x00004753      0x16c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wcsrtombs.o)
+ .debug_line    0x000048bf      0x1cf C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wctomb_r.o)
+ .debug_line    0x00004a8e      0x145 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wsetup.o)
+ .debug_line    0x00004bd3       0x55 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ctype_.o)
+ .debug_line    0x00004c28      0x3b4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-dtoa.o)
+ .debug_line    0x00004fdc      0x17b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fflush.o)
+ .debug_line    0x00005157      0x1cd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-findfp.o)
+ .debug_line    0x00005324      0x15f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fread.o)
+ .debug_line    0x00005483      0x185 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-freer.o)
+ .debug_line    0x00005608      0x1bc C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fvwrite.o)
+ .debug_line    0x000057c4      0x154 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fwalk.o)
+ .debug_line    0x00005918       0xec C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-iswspace.o)
+ .debug_line    0x00005a04      0x150 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-locale.o)
+ .debug_line    0x00005b54      0x16f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-makebuf.o)
+ .debug_line    0x00005cc3      0x14f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbrtowc.o)
+ .debug_line    0x00005e12      0x13c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mbtowc_r.o)
+ .debug_line    0x00005f4e       0xad C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-memchr.o)
+ .debug_line    0x00005ffb      0x3b4 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-mprec.o)
+ .debug_line    0x000063af      0x140 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-putc.o)
+ .debug_line    0x000064ef      0x176 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reallocr.o)
+ .debug_line    0x00006665      0x16c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-refill.o)
+ .debug_line    0x000067d1       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isinfd.o)
+ .debug_line    0x0000687d       0xac C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-s_isnand.o)
+ .debug_line    0x00006929       0xc7 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sccl.o)
+ .debug_line    0x000069f0       0x66 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sf_nan.o)
+ .debug_line    0x00006a56      0x17d C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-sprintf.o)
+ .debug_line    0x00006bd3      0x165 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-stdio.o)
+ .debug_line    0x00006d38       0x6c C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strcmp.o)
+ .debug_line    0x00006da4      0x359 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtod.o)
+ .debug_line    0x000070fd      0x177 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtol.o)
+ .debug_line    0x00007274      0x172 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-strtoul.o)
+ .debug_line    0x000073e6      0x273 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-syscalls.o)
+ .debug_line    0x00007659      0x180 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-ungetc.o)
+ .debug_line    0x000077d9      0x156 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-wbuf.o)
+ .debug_line    0x0000792f      0x103 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-callocr.o)
+ .debug_line    0x00007a32       0xfd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-closer.o)
+ .debug_line    0x00007b2f       0xf6 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-errno.o)
+ .debug_line    0x00007c25      0x149 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fclose.o)
+ .debug_line    0x00007d6e      0x14b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-fstatr.o)
+ .debug_line    0x00007eb9      0x230 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-gethex.o)
+ .debug_line    0x000080e9      0x100 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-gdtoa-hexnan.o)
+ .debug_line    0x000081e9       0xfd C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-lseekr.o)
+ .debug_line    0x000082e6      0x12f C:\Program Files\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a(lib_a-reent.o)
+ .debug_line    0x00008415       0x8a C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .debug_line    0x0000849f       0x96 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_divsi3.o)
+ .debug_line    0x00008535       0x74 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_umodsi3.o)
+ .debug_line    0x000085a9       0x7a C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_modsi3.o)
+ .debug_line    0x00008623       0x63 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00008686      0x16b C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_addsubdf3.o)
+ .debug_line    0x000087f1      0x180 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_muldivdf3.o)
+ .debug_line    0x00008971       0xad C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_cmpdf2.o)
+ .debug_line    0x00008a1e       0x78 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixdfsi.o)
+ .debug_line    0x00008a96       0x76 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_fixunsdfsi.o)
+ .debug_line    0x00008b0c       0x89 C:\Program Files\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_truncdfsf2.o)
 
 .debug_frame    0x00000000     0x2490
  *(.debug_frame)

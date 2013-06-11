@@ -21,7 +21,7 @@ int main( void ){
 
     BaseStickConfig();
 	sspInit();
- 	menue();	
+ 	menue();
 
 	printf("###############################      main gestartet!\n");		
 
@@ -54,8 +54,37 @@ int main( void ){
 			currentBuffer = outBuf1;
 		}
  		FIO1PIN = ( FIO1PIN | (1<<LED1BIT) ); //WAITING_LED1 ON	
- 		while( currentBuffer->sampleCnt > 0){};	
+ 		while( currentBuffer->sampleCnt > 0){
+
+
+		if((FIO1PIN & 1 << 8) == 0){
+			printf("sinnvolles\n");
+		}};
+ 		if((FIO1PIN & 1 << 9) == 0){
+			printf("blalalal\n");
+		}};
+
+		if((FIO1PIN & 1 << 10) == 0){
+			printf("blalalal\n");
+		}};
+
+		if((FIO1PIN & 1 << 11) == 0){
+			printf("blalalal\n");
+		}};
+	
+
+
  		FIO1PIN = ( FIO1PIN & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
+
+
+/*
+case 
+		S0:  	Abspielen der Daten ab Flashadresse 0x000000 über PWM.1 und PWM.2, linker Kanal zusätzlich über DAC.
+		S1:  	Abspielen der Daten ab Flashadresse 0x000000 über PWM.1 und PWM.2, rechter Kanal zusätzlich über DAC.
+		S2:  	Abspielen der Daten ab Flashadresse 0x200000 über PWM.1 und PWM.2, linker Kanal zusätzlich über DAC.
+		S3:  	Abspielen der Daten ab Flashadresse 0x200000 über PWM.1 und PWM.2, rechter Kanal zusätzlich über DAC.
+*/
+
 
 		i++;
 	}
