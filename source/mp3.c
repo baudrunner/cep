@@ -1,7 +1,7 @@
 #include "mp3.h"
 unsigned char inputBuffer[READBUF_SIZE];
 unsigned char *inBufPtr;
-int spiDataPosition = 0;
+int spiDataPosition;
 int bytesLeft;
 HMP3Decoder mp3Dec;
 
@@ -29,7 +29,7 @@ int initMp3Module(){
 		printf("mp3 Decoder initialisiert! mp3Dec= %p\n",mp3Dec);
 	}
 	
-	spiDataPosition = 0;	
+	spiDataPosition = 0x200000;	
 	bytesLeft = 0;	
 	return 0;
 }
@@ -38,7 +38,7 @@ int initMp3Module(){
 int decode(int16_t *outBuf){
 
 	/* somewhat arbitrary trigger to refill buffer - should always be enough for a full frame */
-	if (bytesLeft < 2*MAINBUF_SIZE && !eofReached) {
+	if (bytesLeft < MAINBUF_SIZE && !eofReached) {
 		nRead =fillBuffer(inputBuffer, inBufPtr, READBUF_SIZE, bytesLeft, spiDataPosition);
 		spiDataPosition += nRead;
 		//nRead = FillReadBuffer(readBuf, readPtr, READBUF_SIZE, bytesLeft, infile);

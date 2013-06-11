@@ -12,7 +12,7 @@
 
 #define OUTSIZE (MAX_NGRAN*MAX_NCHAN*MAX_NSAMP)
 #define NUMOFCHAN 2
-#define READBUF_SIZE (MAINBUF_SIZE)
+#define READBUF_SIZE (2*MAINBUF_SIZE)
 
 int initMp3Module();
 int decode(int16_t *outBuf);

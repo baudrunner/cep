@@ -47,7 +47,8 @@ int main( void ){
 	while(i < 89000){
 		//printf("Druchlauf %d\n",i);
 		currentBuffer->sampleCnt = decode(currentBuffer->data);
-		
+		if( currentBuffer->sampleCnt <= 0){ break; }
+		//printf("%d Bytes dekodiert\n",currentBuffer->sampleCnt);
 		if(currentBuffer == outBuf1){	// Wenn Buffergröße erreicht ist, dann aktuellen Buffer aendern
 			currentBuffer = outBuf2;
 		}else{
@@ -57,7 +58,7 @@ int main( void ){
  		while( currentBuffer->sampleCnt > 0){};	
  		FIO1PIN = ( FIO1PIN & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
 
-		i++;
+		//i++;
 	}
 	mp3Cleanup();
     while(1){}

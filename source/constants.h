@@ -3,10 +3,10 @@
 
 #include <inttypes.h>
 
-#define LED1BIT 0
-#define LED2BIT 1
-#define LED3BIT 2
-#define LED4BIT 4
+#define LED0BIT 0
+#define LED1BIT 1
+#define LED2BIT 2
+#define LED3BIT 3
 
 
 #define EMPTY 12345
