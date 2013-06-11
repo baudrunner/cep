@@ -14,7 +14,7 @@
 #define NUMOFCHAN 2
 #define READBUF_SIZE (2*MAINBUF_SIZE)
 
-int initMp3Module();
+int initMp3Module(int startAddr);
 int decode(int16_t *outBuf);
 int fillBuffer(unsigned char *inputBuffer, unsigned char *inBufPtr, int bufSize, int bytesLeft, int readAddr);
 void mp3Cleanup(void);

@@ -9,13 +9,15 @@
 
 #define CPUFREQ 72000000
 
-int16_t outBuf[OUTSIZE];
+//int16_t outBuf[OUTSIZE];
 int16_t outputBuffer1[OUTSIZE];
 int16_t outputBuffer2[OUTSIZE];
 
 struct buffer *outBuf1;
 struct buffer *outBuf2;
 struct buffer *currentBuffer;
+void restart(int startAddr);
+int dacChannel = DAC_CHANNEL_LEFT;
 
 int main( void ){
 
@@ -37,7 +39,7 @@ int main( void ){
 	currentBuffer = outBuf1;
     
 
-	initMp3Module();
+	initMp3Module(0x000000);
 	pwmInit();
 	dacInit(outBuf1, outBuf2);
 	initTimer();	
@@ -48,9 +50,26 @@ int main( void ){
 	
 	int i = 0;
 	while(i < 89000){
-		//printf("Druchlauf %d\n",i);
+		
+ 		fio1PinState = FIO1PIN;
+		
+		if( (fio1PinState & S0_BIT) == 0){
+			dacChannel = DAC_CHANNEL_LEFT;
+			restart(0x000000);
+		}
+		else if( (fio1PinState & S1_BIT) == 0){
+			dacChannel = DAC_CHANNEL_RIGHT;
+			restart(0x000000);	
+		}else if( (fio1PinState & S2_BIT) == 0){
+			dacChannel = DAC_CHANNEL_LEFT;
+			restart(0x200000);	
+		}else if( (fio1PinState & S3_BIT) == 0){
+			dacChannel = DAC_CHANNEL_RIGHT;
+			restart(0x200000);	
+		}
+
 		currentBuffer->sampleCnt = decode(currentBuffer->data);
-		if( currentBuffer->sampleCnt <= 0){ break; }
+		if( currentBuffer->sampleCnt <= 0){ break; } //mp3 scheint zu Ende
 		//printf("%d Bytes dekodiert\n",currentBuffer->sampleCnt);
 		if(currentBuffer == outBuf1){	// Wenn Buffergröße erreicht ist, dann aktuellen Buffer aendern
 			currentBuffer = outBuf2;
@@ -58,13 +77,26 @@ int main( void ){
 			currentBuffer = outBuf1;
 		}
 
- 		fio1PinState = ( FIO1PIN | (1<<LED1BIT) ); //WAITING_LED1 ON
- 		FIO1PIN = fio1PinState ; //WAITING_LED1 ON	
- 		while( currentBuffer->sampleCnt > 0){};	
- 		FIO1PIN = ( FIO1PIN & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
+ 		FIO1PIN = ( fio1PinState | (1<<LED1BIT)) ; //WAITING_LED1 ON	
+ 		
+		while( currentBuffer->sampleCnt > 0){};	
+ 		FIO1PIN = ( fio1PinState & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
+
 
 		//i++;
 	}
 	mp3Cleanup();
     while(1){}
 }//main
+
+
+void restart(int startAddr){
+	printf("cleanup(): ### leere output-Buffer...\n");
+    memset(outputBuffer1, 0, OUTSIZE);
+    memset(outputBuffer2, 0, OUTSIZE); 
+
+	outBuf1->sampleCnt = 0;	
+	outBuf2->sampleCnt = 0;
+	mp3Cleanup();
+	initMp3Module(startAddr);
+}

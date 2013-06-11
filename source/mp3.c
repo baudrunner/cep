@@ -14,7 +14,7 @@ int offset = 0;
 int err = 0;
 MP3FrameInfo mp3FrameInfo;	
 
-int initMp3Module(){
+int initMp3Module(int startAddr){
 
 	printf("initialisiere mp3 Decoder...\n");
 	mp3Dec = MP3InitDecoder();
@@ -29,7 +29,7 @@ int initMp3Module(){
 		printf("mp3 Decoder initialisiert! mp3Dec= %p\n",mp3Dec);
 	}
 	
-	spiDataPosition = 0x200000;	
+	spiDataPosition = startAddr;	
 	bytesLeft = 0;	
 	return 0;
 }
@@ -109,7 +109,10 @@ int fillBuffer(unsigned char *inputBuffer, unsigned char *inBufPtr, int bufSize,
 
 void mp3Cleanup(){
 
-	printf("MP3FreeDecoder()...\n");
+	
+	printf("mp3Cleanup() leere inputBuffer...\n");
+	memset(inputBuffer, 0, READBUF_SIZE);
+	printf("MP3FreeDecoder()...\n");	
 	MP3FreeDecoder(mp3Dec);	
 
 }

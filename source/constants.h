@@ -28,12 +28,13 @@
 #define AMPL     (1<<15)                 //Amplitude der Stuetzstellenwerte
 #define N_NACHKOMMA 16                   //Anzahl der binaeren Nachkommastellen bei der Zeitberechnung
 
+#define S0_BIT (1 << 8)
+#define S1_BIT (1 << 9)
+#define S2_BIT (1 << 10)
+#define S3_BIT (1 << 11)
 
-#define S0_BIT 8
-#define S1_BIT 9
-#define S2_BIT 10
-#define S3_BIT 11
-
+#define DAC_CHANNEL_RIGHT 0x1
+#define DAC_CHANNEL_LEFT  0x2
 
 
 struct buffer{

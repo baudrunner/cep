@@ -22,6 +22,8 @@ extern struct buffer *IsrBuffer1;
 extern struct buffer *IsrBuffer2;
 extern struct buffer *currentIsrBuffer;
 
+extern int dacChannel;
+
 void isrRoutine(void);
 
 #endif //_CE_ISRROUTINE_H_
