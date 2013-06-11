@@ -2,15 +2,14 @@
 
 
 void isrRoutine(void){
-	FIO1PIN = ( FIO1PIN ^ (1<<LED2BIT) ); //UNDERFLOW_LED2 TOGGLE
 
 	if(currentIsrBuffer->sampleCnt <= 0){
- 	   FIO1PIN = ( FIO1PIN | (1<<LED0BIT) ); //UNDERFLOW_LED0 ON
+ 	    FIO1PIN = ( FIO1PIN | (1<<LED0BIT) ); //UNDERFLOW_LED0 ON
     }else{   
  	    FIO1PIN = ( FIO1PIN & ~(1<<LED0BIT) ); //UNDERFLOW_LED0 OFF
 		//PWM1_MR1 = ((uint16_t)currentIsrBuffer->data[isrBufferIdx] / 40);  // viel zu langsam
  		
-		//DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
+		DACR = (  ((a_fixpoint + (b_fixpoint * currentIsrBuffer->data[isrBufferIdx]))>>N_NACHKOMMA)      << 6); // Wert auf den DAC schreiben
 		PWM1_MR1 = ((((int)currentIsrBuffer->data[isrBufferIdx] + (1 << 15) )  * 1633) >> 16);
 
  	    isrBufferIdx++;

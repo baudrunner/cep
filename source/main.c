@@ -42,6 +42,9 @@ int main( void ){
 	dacInit(outBuf1, outBuf2);
 	initTimer();	
 	
+
+	int fio1PinState;
+
 	
 	int i = 0;
 	while(i < 89000){
@@ -54,7 +57,9 @@ int main( void ){
 		}else{
 			currentBuffer = outBuf1;
 		}
- 		FIO1PIN = ( FIO1PIN | (1<<LED1BIT) ); //WAITING_LED1 ON	
+
+ 		fio1PinState = ( FIO1PIN | (1<<LED1BIT) ); //WAITING_LED1 ON
+ 		FIO1PIN = fio1PinState ; //WAITING_LED1 ON	
  		while( currentBuffer->sampleCnt > 0){};	
  		FIO1PIN = ( FIO1PIN & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
 

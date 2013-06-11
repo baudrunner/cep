@@ -28,6 +28,14 @@
 #define AMPL     (1<<15)                 //Amplitude der Stuetzstellenwerte
 #define N_NACHKOMMA 16                   //Anzahl der binaeren Nachkommastellen bei der Zeitberechnung
 
+
+#define S0_BIT 8
+#define S1_BIT 9
+#define S2_BIT 10
+#define S3_BIT 11
+
+
+
 struct buffer{
     int sampleCnt;
     int16_t *data;         
