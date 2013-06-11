@@ -8,12 +8,8 @@
 #include "isrRoutine.h"
 #include "audioOut.h"
 
-
 char stringBufferForLcdPrint[33]; //16 stellen pro LCD-Zeile + term. null
-
 int *tabelle[N_STUETZ+1];
-
-
 
 int count = 0;
 int msRuntime = 0;
@@ -32,17 +28,12 @@ struct buffer *currentIsrBuffer;
 int tableIdx = 0;
 int buffIdx = 0;
 
-
-
 void __attribute__ ((interrupt("IRQ"))) isr_timer(void){
 
     TIMER2_IR = 0x01;   // INT-Acknowledge resp. switch off MR0-IRQ ( MatchRegister0 InterruptReQuest ) -> UM Chapter 6-6.1, Table 547  
-
 	isrRoutine();
-
     VICVectAddr = 0;       // mark end of ISR  resp. trigger update of VIC priority logic -> UM Chapter 3-3.11, Table 113 
 }
-
 
 void pwmInit(){
 
@@ -67,73 +58,11 @@ void dacInit (struct buffer *isrBuf1, struct buffer *isrBuf2)
     PCLKSEL0 |= 0x01<<22; // clock für DAC setzten
     PINSEL1  |= 0x10<<20; // AOUT Pin wählen ( Was bringt : PINMODE1  = 0x01; )
 	
-/*
-	
-	// Buffer für Wechselseitiges Lesen/Schreiben
-	buffer1 = malloc(sizeof(struct buffer));
-    buffer1->state = EMPTY;
-    buffer1->data = malloc(sizeof(*buffer1->data) * BUFFERSIZE);
-    buffer1->buffersize = BUFFERSIZE;
-	
-    buffer2 = malloc(sizeof(struct buffer));
-    buffer2->state = EMPTY;
-    buffer2->data = malloc(sizeof(*buffer2->data) * BUFFERSIZE);
-    buffer2->buffersize = BUFFERSIZE; 
-*/
-
-	//actualbuffer = buffer1;
-
 	IsrBuffer1 = isrBuf1;
 	IsrBuffer2 = isrBuf2;	
 
 	currentIsrBuffer = IsrBuffer1;		
 }
-
-/*
-void dacOut(){
-
-	while(1){
-
-			//WAIT_LED ON
-		    // GPIO1_IOPIN = ( GPIO1_IOPIN | (1<<LED1BIT) ); //aktiviere LED1 (IDLE)	
-	
-	        while(actualbuffer->state != EMPTY){   //solange puffer noch voll
-	        }
-	        
-			//WAIT_LED OFF
-	 	    GPIO1_IOPIN = ( GPIO1_IOPIN & ~(1<<LED1BIT) ); //deaktiviere LED1 (IDLE)
-			
-	        //FILL actualbuffer
-			while(buffIdx < BUFFERSIZE){
-				
-				if( tableIdx >= (N_STUETZ << N_NACHKOMMA) ){
-					tableIdx = tableIdx - (N_STUETZ << N_NACHKOMMA) ;
-				}
-	
-				//							       A      +       B     *                 Nstuetz         <RUNDEN>
-				actualbuffer->data[buffIdx] =   ( a_fixpoint + (b_fixpoint *   table_wave[4]))>>N_NACHKOMMA ;
-				tableIdx += offset;		
-				buffIdx++;
-			}
-	
-			buffIdx = 0;
-	       
-	        actualbuffer->state = FULL;
-			if(timerRunning == 0){
-				initTimer();	
-			}
-	 	    	
-	        // Buffer Wechseln
-	        if(actualbuffer == buffer1){
-	            actualbuffer = buffer2;
-	 		    GPIO1_IOPIN = ((GPIO1_IOPIN | (1<<LED4BIT)) & ~(1<<LED3BIT)); //Activate LED4 & deactivate LED3		
-	        }else{
-				actualbuffer = buffer1;
-	 		    GPIO1_IOPIN = ((GPIO1_IOPIN | (1<<LED3BIT)) & ~(1<<LED4BIT)); //Activate LED3 & deactivate LED4			
-	        }  
-	}
-}
-*/
 
 void initTimer(){
     PCONP    |= (1<<22); // enable timer
@@ -149,8 +78,6 @@ void initTimer(){
 	VICVectPriority26  =  1;                    // assign Prio 5 for Timer2                      -> UM Chapter 7-3.10, Table 112 (& 102, 117)
 	VICVectAddr26      =  (int)( isr_timer );   // bind "timer isr" to Timer2 IRQ                -> UM Chapter 7-3.11, Table 113 (& 102, 117)
 	VICIntEnable       =  (1<<26);           // enable interrupt for Timer2 IRQ               -> UM Chapter 7-3.4,  Table 106 (& 117)	
-
-    //timerRunning = 1;	
 }
 
 /************************************** EOF *********************************/

@@ -7,8 +7,6 @@
 //#include "lpc24xx.h"
 #define ARM
 
-
-
 #define CPUFREQ 72000000
 
 int16_t outBuf[OUTSIZE];
@@ -19,32 +17,25 @@ struct buffer *outBuf1;
 struct buffer *outBuf2;
 struct buffer *currentBuffer;
 
-
-
 int main( void ){
 
     BaseStickConfig();
-    sspInit();
+	sspInit();
+ 	menue();	
 
 	printf("###############################      main gestartet!\n");		
-	printf("###############################      MACH_REGISTER_COUNT = %d\n",MACH_REGISTER_COUNT);		
 
-	//int buffersize = MAINBUF_SIZE;  //1940
-	
 	outBuf1 = malloc(sizeof(struct buffer));
-	outBuf2 = malloc(sizeof(struct buffer));
-	
-	menue();
-
 	outBuf1->sampleCnt = 0;
 	outBuf1->data = outputBuffer1;         
     outBuf1->buffersize = READBUF_SIZE;  	
-	
+	outBuf2 = malloc(sizeof(struct buffer));
 	outBuf2->sampleCnt = 0;
 	outBuf2->data = outputBuffer2;         
     outBuf2->buffersize = READBUF_SIZE; 
 	
 	currentBuffer = outBuf1;
+    
 
 	initMp3Module();
 	pwmInit();
@@ -62,42 +53,12 @@ int main( void ){
 		}else{
 			currentBuffer = outBuf1;
 		}
-		
-		//printf("warte bis buffer %p leer ist...\n",currentBuffer);	
  		FIO1PIN = ( FIO1PIN | (1<<LED1BIT) ); //WAITING_LED1 ON	
  		while( currentBuffer->sampleCnt > 0){};	
  		FIO1PIN = ( FIO1PIN & ~(1<<LED1BIT) ); //WAITING_LED1 OFF	
 
 		i++;
 	}
-
-
-	//fillBuffer();
-	//initMp3Module();	
-	//decodeMp3();
-	//fillBuffer();	
-	//decodeMp3();	
-	
-	/*
-	int i;
-	for(i = 0; i < 3; i++){
-		decodeMp3();
-		fillBuffer();
-	}*/
-    
-
 	mp3Cleanup();
-
-	
-	//char *data = spiReadBytes(buffersize, 0, SPI_INT);
-		
-
-
-    //initMp3Module(data);
-
-    //dac();
-
-
-
     while(1){}
 }//main

@@ -1,5 +1,4 @@
 #include "mp3.h"
-
 unsigned char inputBuffer[READBUF_SIZE];
 unsigned char *inBufPtr;
 int spiDataPosition = 0;
@@ -14,7 +13,6 @@ int nFrames = 0;
 int offset = 0;
 int err = 0;
 MP3FrameInfo mp3FrameInfo;	
-
 
 int initMp3Module(){
 
@@ -37,10 +35,7 @@ int initMp3Module(){
 }
 
 
-
-
 int decode(int16_t *outBuf){
-	
 
 	/* somewhat arbitrary trigger to refill buffer - should always be enough for a full frame */
 	if (bytesLeft < 2*MAINBUF_SIZE && !eofReached) {
@@ -100,54 +95,13 @@ int decode(int16_t *outBuf){
 	}
 
 	return mp3FrameInfo.outputSamps;
-	/*
-	int j = 0;
-	for(j = 0; j < 10; j++){
-		printf("outBuf[%d]= %d\n",j,outBuf[j]);
-	}*/
-
 }
 
 int fillBuffer(unsigned char *inputBuffer, unsigned char *inBufPtr, int bufSize, int bytesLeft, int readAddr){
 
-	//printf("fillBuffer(*inputBuffer= %p, *inBufPtr= %p, bufSize= %d, bytesLeft= %d, readAddr= %d\n",inputBuffer,inBufPtr,bufSize,bytesLeft,readAddr);
-	//printf("fillBuffer() : lese %d neue Bytes vom SPI\n",bufSize - bytesLeft);
-	
-
-
-	/*
-	int i;	
- 	printf("10 Bytes ab inputBuffer:\n");
-	for( i = 0; i < 10; i++){
-		printf("inputBuffer[%d]= 0x%02X\n",i,inputBuffer[i]);
-		 
-	}	
-
-	printf("10 Bytes ab inBufPtr:\n");
-	for( i = 0; i < 10; i++){
-		printf("inBufPtr[%d]= 0x%02X\n",i,inBufPtr[i]);
-		 
-	}	*/
-
-
 	memmove(inputBuffer, inBufPtr, bytesLeft);		
 	spiReadBytes(inputBuffer + bytesLeft, bufSize - bytesLeft, readAddr, SPI_INT);	
 	inBufPtr = inputBuffer;
-
-
-	/* zero-pad to avoid finding false sync word after last frame (from old data in readBuf) */
-	//if (nRead < bufSize - bytesLeft){
-	//	memset(readBuf + bytesLeft + nRead, 0, bufSize - bytesLeft - nRead);	
-	//}
-
-	//printf("fillBuffer(): inputBuffer= %p\ninBufPtr= %p\n",inputBuffer,inBufPtr);
-
-	/*
-	printf("10 Bytes ab inputBuffer [nach kopieren]:\n");
-	for( i = 0; i < 10; i++){
-		printf("inputBuffer[%d]= 0x%02X\n",i,inputBuffer[i]);
-		 
-	}*/
 
 	return bufSize - bytesLeft;
 }

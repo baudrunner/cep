@@ -12,12 +12,5 @@ void pwmInit();
 void isrRoutine();
 void __attribute__ ((interrupt("IRQ"))) isr_timer(void);
 
-/*
-volatile struct buffer *buffer1;
-volatile struct buffer *buffer2;
-volatile struct buffer *actualbuffer;
-volatile struct buffer *isrbuffer;*/
-
-
 #endif //_CE_AUDIO_OUT_H_
 
