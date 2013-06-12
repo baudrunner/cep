@@ -43,7 +43,7 @@ int main( void ){
 	initMp3Module(0x000000);
 	pwmInit();
 	dacInit(outBuf1, outBuf2);
-	initTimer();	
+	//initTimer();	
 	
 
 	int fio1PinState;
@@ -83,7 +83,6 @@ int main( void ){
 		while( currentBuffer->sampleCnt > 0){};	
  		FIO1PIN = ( fio1PinState & ~(1<<LED1BIT) ); //WAITING_LED1 OFF		
 
-		//i++;
 	}
 	mp3Cleanup();
     while(1){}
@@ -104,7 +103,7 @@ void restart(int startAddr){
 
 	pwmInit();
 	dacInit(outBuf1, outBuf2);
-	initTimer();		
+	//initTimer();		
 
 	currentBuffer = outBuf1;
 }

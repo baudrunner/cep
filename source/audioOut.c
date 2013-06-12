@@ -17,9 +17,12 @@ int running = 0;
 int timerRunning = 0;
 int printCount = 0;
 int isrBufferIdx = 0;
-int freq_signal = 440;
-int a_fixpoint = 30504029;
-int b_fixpoint = 621;
+
+//int a_fixpoint = 30504029;  //verschiebung des mittelwertes
+//int b_fixpoint = 621;  //zur Amplituden Berechnung bzw. Skalierung
+
+int a_fixpoint = 33554432; // Mittelwert = 1,65
+int b_fixpoint = 1022; // zur Amplituden Berechnung bzw. Skalierung
 
 struct buffer *IsrBuffer1;
 struct buffer *IsrBuffer2;
@@ -30,7 +33,8 @@ int buffIdx = 0;
 
 void __attribute__ ((interrupt("IRQ"))) isr_timer(void){
 
-    TIMER2_IR = 0x01;   // INT-Acknowledge resp. switch off MR0-IRQ ( MatchRegister0 InterruptReQuest ) -> UM Chapter 6-6.1, Table 547  
+    //TIMER2_IR = 0x01;   // INT-Acknowledge resp. switch off MR0-IRQ ( MatchRegister0 InterruptReQuest ) -> UM Chapter 6-6.1, Table 547  
+	PWM1_IR = 0x01;
 	isrRoutine();
     VICVectAddr = 0;       // mark end of ISR  resp. trigger update of VIC priority logic -> UM Chapter 3-3.11, Table 113 
 }
@@ -49,6 +53,12 @@ void pwmInit(){
                (1<<2) | (1<<3);
     PWM1_TCR = (1<<0) | (1<<3);               // Counter Enable, PWM Enable
 
+ 
+ 	VICIntSelect      &=  ~(1<<8);          // PWM 0 1 assigned to IRQ category and NOT FIQ   -> UM Chapter 7-3.6,  Table 108 (& 117)
+	VICVectPriority8  =  1;                    // assign Prio 1 for PWM 0 1                     -> UM Chapter 7-3.10, Table 112 (& 102, 117)
+	VICVectAddr8      =  (int)( isr_timer );   // bind "timer isr" to PWM 0 1 IRQ                -> UM Chapter 7-3.11, Table 113 (& 102, 117)
+	VICIntEnable       =  (1<<8);           // enable interrupt for PWM 0 1 IRQ               -> UM Chapter 7-3.4,  Table 106 (& 117)		
+
 }
 
 void dacInit (struct buffer *isrBuf1, struct buffer *isrBuf2)
@@ -63,6 +73,8 @@ void dacInit (struct buffer *isrBuf1, struct buffer *isrBuf2)
 	currentIsrBuffer = IsrBuffer1;		
 }
 
+
+
 void initTimer(){
     PCONP    |= (1<<22); // enable timer
 	PCLKSEL1 |= (1<<12); // set clock to cclk (48 MHz)
@@ -72,11 +84,12 @@ void initTimer(){
 	TIMER2_IR  =  0xff; // reset all interrrupts
 	TIMER2_MCR = 3<<0; // interrupt on MR0, reset on MR0, do not stop timer
 	TIMER2_TCR = 0x01; // start timer
-
+/*
  	VICIntSelect      &=  ~(1<<26);          // Timer2 assigned to IRQ category and NOT FIQ   -> UM Chapter 7-3.6,  Table 108 (& 117)
 	VICVectPriority26  =  1;                    // assign Prio 5 for Timer2                      -> UM Chapter 7-3.10, Table 112 (& 102, 117)
 	VICVectAddr26      =  (int)( isr_timer );   // bind "timer isr" to Timer2 IRQ                -> UM Chapter 7-3.11, Table 113 (& 102, 117)
 	VICIntEnable       =  (1<<26);           // enable interrupt for Timer2 IRQ               -> UM Chapter 7-3.4,  Table 106 (& 117)	
+	*/
 }
 
 /************************************** EOF *********************************/

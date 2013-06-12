@@ -37,17 +37,15 @@ int initMp3Module(int startAddr){
 
 int decode(int16_t *outBuf){
 
-	if (bytesLeft < MAINBUF_SIZE && !eofReached) {
+	if (bytesLeft < MAINBUF_SIZE) {
 		nRead =fillBuffer(inputBuffer, inBufPtr, READBUF_SIZE, bytesLeft, spiDataPosition);
 		spiDataPosition += nRead;
 		bytesLeft += nRead;
 		inBufPtr = inputBuffer;
-		if (nRead == 0)
-			eofReached = 1;
 	}
 
 	offset = MP3FindSyncWord(inBufPtr, bytesLeft);
-	if (offset < 0) {
+	if (offset < 0) { // mp3 vermutl. zuende...
 		outOfData = 1;
 	}
 	inBufPtr += offset;

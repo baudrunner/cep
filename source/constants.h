@@ -14,7 +14,7 @@
 #define BUFFERSIZE 1024
 #define FREQ_ABTAST 44090                //Frequenz, mit der die Ausgabe erfolgt 44.117,64706 hz
 #define SYS_CLK 72000000
-#define MACH_REGISTER_COUNT (SYS_CLK + FREQ_ABTAST / 2) / FREQ_ABTAST 
+#define MACH_REGISTER_COUNT ((SYS_CLK + FREQ_ABTAST / 2) / FREQ_ABTAST)
 
 
 #define N_STUETZ 256                     //Anzahl der Stuetzstellen
