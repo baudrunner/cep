@@ -44,8 +44,7 @@ void pwmInit(){
     PWM1_MCR = (1<<0) | (1<<1);               // Interrupt on PWMMR0, Reset on PWMMR0
     PWM1_PCR = //(1<<2) | (1<<3) |            // PWM1.2 double edge, PWM1.3 double edge,
                (1<<9) | (1<<10); // PWM1.1 PWM1.2 PWM1.3 enabled
-    PWM1_MR0 = 1633;                             // PWM-Period
-    PWM1_MR1 = 816;                             // PWM-Match 1
+    PWM1_MR0 = MACH_REGISTER_COUNT;                             // PWM-Period
     PWM1_LER = (1<<0) | (1<<1) |              // Latch Enable
                (1<<2) | (1<<3);
     PWM1_TCR = (1<<0) | (1<<3);               // Counter Enable, PWM Enable

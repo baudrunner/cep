@@ -23,9 +23,10 @@ int main( void ){
 
     BaseStickConfig();
 	sspInit();
- 	menue();	
-
 	printf("###############################      main gestartet!\n");		
+
+	printf("MACH_REGISTER_COUNT Wert : %d\n", MACH_REGISTER_COUNT);
+ 	menue();	
 
 	outBuf1 = malloc(sizeof(struct buffer));
 	outBuf1->sampleCnt = 0;
