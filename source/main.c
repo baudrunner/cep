@@ -5,6 +5,7 @@
 #include "audioOut.h"
 #include "constants.h"
 //#include "lpc24xx.h"
+#include "psi.h"
 #define ARM
 
 #define CPUFREQ 72000000
@@ -52,12 +53,15 @@ int main( void ){
 	int running = 1;
 	while(running){
 		
+		
+		
  		fio1PinState = FIO1PIN;
  		
 		if( (fio1PinState & S0_BIT) == 0){
+ 			//int psiInit( void );	
 			dacChannel = DAC_CHANNEL_LEFT;
 			restart(0x000000);
-		}
+		}/*
 		else if( (fio1PinState & S1_BIT) == 0){
 			dacChannel = DAC_CHANNEL_RIGHT;
 			restart(0x000000);	
@@ -82,7 +86,7 @@ int main( void ){
  	 	FIO1PIN = ( fio1PinState | (1<<LED1BIT)) ; //WAITING_LED1 ON	
 		while( currentBuffer->sampleCnt > 0){};	
  		FIO1PIN = ( fio1PinState & ~(1<<LED1BIT) ); //WAITING_LED1 OFF		
-
+		*/
 	}
 	mp3Cleanup();
     while(1){}

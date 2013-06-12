@@ -162,7 +162,7 @@ void GPIO_Configuration(uint8_t boardtype)
                PINSEL5 = COM_PINSEL5; /* see ConfigStick.h */
                break;
     case TI_Board:           /* TI-Board used for GT */
-               SCS |= GPIOM; /* set GPIOx to use Fast I/O */
+               SCS |= GPIOM;t /* set GPIOx to use Fast I/O */
                PINSEL0 = TI_PINSEL0; /* see ConfigStick.h */
                PINSEL1 = TI_PINSEL1; /* see ConfigStick.h */
                PINSEL2 = TI_PINSEL2; /* see ConfigStick.h */

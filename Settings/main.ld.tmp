@@ -27,6 +27,7 @@ INPUT 	(
 .\objects\isrRoutine.o
 .\objects\main.o
 .\objects\mp3.o
+.\objects\psi.o
 .\objects\spi.o
 .\objects\startup.o
 .\objects\ConfigStick.o
